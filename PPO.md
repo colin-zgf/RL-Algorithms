@@ -43,6 +43,18 @@ An n-step look ahead advantage function is defined as:
 
 $$\hat A_{n}^{\pi} = \sum_{t^{'}=t}^{t+n}\gamma^{t^{'}-t}r(s_{t^{'}}, a_{t^{'}})-\hat V_{\phi}^{\pi}(s_{t}) + \gamma^{n}\hat V_{\phi}^{\pi}(s_{t+n})\tag{7}$$
 
+In GAE, we blend the temporal difference results together. Here are different advantage function with 1 to $k$-step lookahead with $\delta_{t}^{v}=r_{t} + \gamma V(s_{t+1}) - V(s_{t})$.
+
+$$\hat A_{t}^{1}:=\delta_{t}^{v}\tag{8}$$
+
+$$\hat A_{t}^{2}:=\delta_{t}^{v} + \gamma \delta_{t+1}^{v}\tag{9}$$
+
+$$\hat A_{t}^{3}:=\delta_{t}^{v} + \gamma \delta_{t+1}^{v} + \gamma^2 \delta_{t+2}^{v}\tag{10}$$
+
+$$\vdot$$
+
+$$\hat A_{t}^{k}:=\sum_{l=0}^{k-1}\delta_{t+1}^{v}\tag{11}$$
+
 ## PPO Training
 
 The PPO method uses a slightly different training procedure. When a long sequence of samples is obtained from the environment and then advantage is estimated for the whole sequence, before several epoches of training are performed. **PPO assumes that a large amount of transitions will be obtained from the environment for every subiteration.**
