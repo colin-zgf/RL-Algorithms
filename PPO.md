@@ -51,7 +51,7 @@ $$\hat A_{t}^{2}:=\delta_{t}^{v} + \gamma \delta_{t+1}^{v}\tag{9}$$
 
 $$\hat A_{t}^{3}:=\delta_{t}^{v} + \gamma \delta_{t+1}^{v} + \gamma^2 \delta_{t+2}^{v}\tag{10}$$
 
-$$\vdot$$
+$$\vdots$$
 
 $$\hat A_{t}^{k}:=\sum_{l=0}^{k-1}\delta_{t+1}^{v}\tag{11}$$
 
