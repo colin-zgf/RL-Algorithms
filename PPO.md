@@ -55,6 +55,10 @@ $$\vdots$$
 
 $$\hat A_{t}^{k}:=\sum_{l=0}^{k-1}\delta_{t+1}^{v}\tag{11}$$
 
+The final advantage function for GAE is:
+
+$$\hat A_{t}^{GAE(\gamma, \lambda)}:=(1-\lambda)($$\hat A_{t}^{1} + \lambda \hat A_{t}^{2} + \lambda^2 \hat A_{t}^{3} + \ldots) =   \sum_{l=0}^{infty}(\gamma \lambda)^l \delta_{t+l}^{v}\tag{12}$$
+
 ## PPO Training
 
 The PPO method uses a slightly different training procedure. When a long sequence of samples is obtained from the environment and then advantage is estimated for the whole sequence, before several epoches of training are performed. **PPO assumes that a large amount of transitions will be obtained from the environment for every subiteration.**
