@@ -22,12 +22,12 @@ $$J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}r_{t}(\theta)A_{t}\end{bmatrix}=\mathb
 
 Remember that the objective function of TRPO (on policy) is:
 
-$$J^{TRPO}(\theta) = \mathbb{E_{t}}\begin{bmatrix}r_{t}(\theta)A_{\theta_{old}}\end{bmatrix}$$
+$$J^{TRPO}(\theta) = \mathbb{E_{t}}\begin{bmatrix}r_{t}(\theta)A_{\theta_{old}}\end{bmatrix}\tag{4}$$
 
-JTRPO(θ)=E[r(θ)A^θold(s,a)]
-Without a limitation on the distance between θold and θ, to maximize JTRPO(θ) would lead to instability with extremely large parameter updates and big policy ratios. PPO imposes the constraint by forcing r(θ) to stay within a small interval around 1, precisely [1-ε, 1+ε], where ε is a hyperparameter.
+Without a limitation on the distance between $\theta_{old}$ and $\theta$, to maximize $J^{TRPO}(\theta)$ would lead to instability with extremely large parameter updates and big policy ratios. PPO imposes the constraint by forcing $r(\theta)$ to stay within a small interval around 1, precisely [1-$\varepsilon$, 1+$\varepsilon$], where $\varepsilon$ is a hyperparameter. Then the clipped version of PPO objective is written as: 
 
-JCLIP(θ)=E[min(r(θ)A^θold(s,a),clip(r(θ),1−ϵ,1+ϵ)A^θold(s,a))]
+$$J^{CLIP}(\theta)=\mathbb{E_{t}}\begin{bmatrix}min(r_{t}(\theta)A_{t}, clip(r_{t}(\theta), 1-$\varepsilon$, 1+$\varepsilon$)A_{t})\end{bmatrix}\tag{5}$$
+
 The function clip(r(θ),1−ϵ,1+ϵ) clips the ratio within [1-ε, 1+ε]. The objective function of PPO takes the minimum one between the original value and the clipped version and therefore we lose the motivation for increasing the policy update to extremes for better rewards.
 
 When applying PPO on the network architecture with shared parameters for both policy (actor) and value (critic) functions, in addition to the clipped reward, the objective function is augmented with an error term on the value estimation (formula in red) and an entropy term (formula in blue) to encourage sufficient exploration.
