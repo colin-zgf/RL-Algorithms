@@ -14,7 +14,7 @@ $$r_{t}(θ)=\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}\ta
 
 In math form, the classical Asynchronous Advantage Actor-Critic (A3C) objective could be written as
 
-$$\bigtriangledown J_{\theta}=\mathbb{E_{t}}[\bigtriangledown_{\theta}]$$
+$$\bigtriangledown J_{\theta}=\mathbb{E_{t}}[\bigtriangledown_{\theta}log\pi_{\theta}(a_{t}|s_{t})A_{t}]\tag{2}$$
 
 
 
