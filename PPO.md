@@ -20,15 +20,9 @@ The new objective function proposed by PPO is
 
 $$J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}r_{t}(θ)A_{t}\end{bmatrix}=\mathbb{E_{t}}\begin{bmatrix}\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}A_{t}\end{bmatrix}\tag{3}$$
 
+Remember that the objective function of TRPO (on policy) is:
 
-
-
-
-
-
-
-
-Then, the objective function of TRPO (on policy) becomes:
+$$J^{TRPO}(\theta) = \mathbb{E_{t}}\begin{bmatrix}r_{t}(θ)A_{t}\end{bmatrix}$$
 
 JTRPO(θ)=E[r(θ)A^θold(s,a)]
 Without a limitation on the distance between θold and θ, to maximize JTRPO(θ) would lead to instability with extremely large parameter updates and big policy ratios. PPO imposes the constraint by forcing r(θ) to stay within a small interval around 1, precisely [1-ε, 1+ε], where ε is a hyperparameter.
