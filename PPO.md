@@ -18,7 +18,7 @@ $$\bigtriangledown J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}\bigtriangledown_{\th
 
 The new objective function proposed by PPO is 
 
-$$J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}r_{t}(θ)A_{t}\end{bmatrix}=\mathbb{E_{t}}\begin{bmatrix}\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}(θ)A_{t}\end{bmatrix}\tag{3}$$
+$$J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}r_{t}(θ)A_{t}\end{bmatrix}=\mathbb{E_{t}}\begin{bmatrix}\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}A_{t}\end{bmatrix}\tag{3}$$
 
 
 
