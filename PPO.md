@@ -1,4 +1,4 @@
-# PPO Algorithm (2017)
+# PPO Algorithm (Proposed in 2017)
 
 ## Background
 
@@ -6,7 +6,7 @@ Unlike deep learning, things can become even worse in the RL landscape, as makin
 
 It was found that Q-learning (with function approximation) fails on many simple problems and is poorly understood; vanilla policy gradient methods have poor data effiency and robustness; and trust region policy optimization (TRPO) is relatively complicated, and is not compatible with architectures that include noise (such as dropout) or parameter sharing (between the policy and value function, or with auxiliary tasks). Given that TRPO is relatively complicated and we still want to implement a similar constraint, proximal policy optimization (PPO) simplifies it by using a clipped surrogate objective while retaining similar performance. Instead of the gradient of logarithm probability of the action taken, the PPO method uses a different objective: the ratio between the new and the old policy scaled by the advantage.
 
-## Algorithm
+## PPO Objective
 
 First, let’s denote the probability ratio between old and new policies as:
 
@@ -26,13 +26,20 @@ $$J^{TRPO}(\theta) = \mathbb{E_{t}}\begin{bmatrix}r_{t}(\theta)A_{\theta_{old}}\
 
 Without a limitation on the distance between $\theta_{old}$ and $\theta$, to maximize $J^{TRPO}(\theta)$ would lead to instability with extremely large parameter updates and big policy ratios. PPO imposes the constraint by forcing $r(\theta)$ to stay within a small interval around 1, precisely [1-$\varepsilon$, 1+$\varepsilon$], where $\varepsilon$ is a hyperparameter. Then the clipped version of PPO objective is written as: 
 
-$$J^{CLIP}(\theta)=\mathbb{E_{t}}\begin{bmatrix}min(r_{t}(\theta)A_{t}, clip(r_{t}(\theta), 1-$\varepsilon$, 1+$\varepsilon$)A_{t})\end{bmatrix}\tag{5}$$
+$$J^{CLIP}(\theta)=\mathbb{E_{t}}\begin{bmatrix}min(r_{t}(\theta)A_{t}, clip(r_{t}(\theta), 1-\varepsilon, 1+\varepsilon)A_{t})\end{bmatrix}\tag{5}$$
 
-The function clip(r(θ),1−ϵ,1+ϵ) clips the ratio within [1-ε, 1+ε]. The objective function of PPO takes the minimum one between the original value and the clipped version and therefore we lose the motivation for increasing the policy update to extremes for better rewards.
+The function $clip(r_{t}(\theta), 1-\varepsilon, 1+\varepsilon)$ clips the ratio within $[1-\varepsilon, 1+\varepsilon]$. The objective function of PPO takes the minimum one between the original value and the clipped version and therefore we lose the motivation for increasing the policy update to extremes for better rewards.
 
-When applying PPO on the network architecture with shared parameters for both policy (actor) and value (critic) functions, in addition to the clipped reward, the objective function is augmented with an error term on the value estimation (formula in red) and an entropy term (formula in blue) to encourage sufficient exploration.
+When applying PPO on the network architecture with shared parameters for both policy (actor) and value (critic) functions, in addition to the clipped reward, the objective function is augmented with an error term on the value estimation and an entropy term to encourage sufficient exploration.
 
-JCLIP'(θ)=E[JCLIP(θ)−c1(Vθ(s)−Vtarget)2+c2H(s,πθ(.))]
+$$J^{CLIP'}(\theta)=\mathbb{E}\begin{bmatrix}J^{CLIP}(\theta)−c_{1}(V_{\theta}(s)−V_{target})^2+c_{2}H(s,π_{\theta}(.))\end{bmatrix}\tag{6}$$
 where Both c1 and c2 are two hyperparameter constants.
 
 PPO has been tested on a set of benchmark tasks and proved to produce awesome results with much greater simplicity.
+
+## Generalized Advantage Estimation (GAE)
+
+
+## PPO Training
+
+The PPO method uses a slightly different training procedure. When a long sequence of samples is obtained from the environment and then advantage is estimated for the whole sequence, before several epoches of training are performed. **PPO assumes that a large amount of transitions will be obtained from the environment for every subiteration.**
