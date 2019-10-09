@@ -57,7 +57,7 @@ $$\hat A_{t}^{k}:=\sum_{l=0}^{k-1}\delta_{t+1}^{v}\tag{11}$$
 
 The final advantage function for GAE is:
 
-$$\hat A_{t}^{GAE(\gamma, \lambda)}:=(1-\lambda)(\hat A_{t}^{1} + \lambda \hat A_{t}^{2} + \lambda^2 \hat A_{t}^{3} + \ldots) =   \sum_{l=0}^{infty}(\gamma \lambda)^l \delta_{t+l}^{v}\tag{12}$$
+$$\hat A_{t}^{GAE(\gamma, \lambda)}:=(1-\lambda)(\hat A_{t}^{1} + \lambda \hat A_{t}^{2} + \lambda^2 \hat A_{t}^{3} + \ldots) =   \sum_{l=0}^{\infty}(\gamma \lambda)^l \delta_{t+l}^{v}\tag{12}$$
 
 ## PPO Training
 
