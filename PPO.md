@@ -59,6 +59,14 @@ The final advantage function for GAE is:
 
 $$\hat A_{t}^{GAE(\gamma, \lambda)}:=(1-\lambda)(\hat A_{t}^{1} + \lambda \hat A_{t}^{2} + \lambda^2 \hat A_{t}^{3} + \ldots) =   \sum_{l=0}^{\infty}(\gamma \lambda)^l \delta_{t+l}^{v}\tag{12}$$
 
+where $\lambda$ is a hyperparameter from 0 to 1. When $\lambda$ is 1, it is Monte Carlo; when $\lambda$ is 0, it is TD with one-step look ahead.
+
+### Hyperparameter tuning ($\lambda$ and $\gamma$)
+
+$\lambda$ blends TD results with Monte Carlo to reduce variance. As $\lambda$ decreases from 1 to 0, we weight heavier towards the TD than Monte Carlo. TD reduces variance but it increases biases. In practice, we want mainly Monte Carlo result with some minor help from TD. The cost drops as we have $\lambda$ close to 1 but not exactly 1. So we should focus on Monte Carlo with little TD learning.
+
+However, in many algorithm, like Actor-Critic algorithm, the variance in the $Q$ estimation (the critic value) decreases if $\gamma$ is samller than 1. This helps the model to learn much better even the problem itself does not ask for it.
+
 ## PPO Training
 
 The PPO method uses a slightly different training procedure. When a long sequence of samples is obtained from the environment and then advantage is estimated for the whole sequence, before several epoches of training are performed. **PPO assumes that a large amount of transitions will be obtained from the environment for every subiteration.**
