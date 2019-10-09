@@ -33,12 +33,15 @@ The function $clip(r_{t}(\theta), 1-\varepsilon, 1+\varepsilon)$ clips the ratio
 When applying PPO on the network architecture with shared parameters for both policy (actor) and value (critic) functions, in addition to the clipped reward, the objective function is augmented with an error term on the value estimation and an entropy term to encourage sufficient exploration.
 
 $$J^{CLIP'}(\theta)=\mathbb{E}\begin{bmatrix}J^{CLIP}(\theta)−c_{1}(V_{\theta}(s)−V_{target})^2+c_{2}H(s,π_{\theta}(.))\end{bmatrix}\tag{6}$$
-where Both c1 and c2 are two hyperparameter constants.
+where Both $c_{1}$ and $c_{2}$ are two hyperparameter constants.
 
 PPO has been tested on a set of benchmark tasks and proved to produce awesome results with much greater simplicity.
 
 ## Generalized Advantage Estimation (GAE)
 
+An n-step look ahead advantage function is defined as:
+
+$$\hat A_{n}^{\pi} = \sum_{t^{'}=t}^{t+n}$$
 
 ## PPO Training
 
