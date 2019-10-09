@@ -12,9 +12,13 @@ First, let’s denote the probability ratio between old and new policies as:
 
 $$r_{t}(θ)=\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}\tag{1}$$
 
-In math form, the classical Asynchronous Advantage Actor-Critic (A3C) objective could be written as
+In math form, policy gradient methods work by computing an estimator of the policy gradient and plugging it into a stochastic gradient ascent algorithm. The most commonly used gradient estimator has the form below
 
 $$\bigtriangledown J_{\theta}=\mathbb{E_{t}}[\bigtriangledown_{\theta}log\pi_{\theta}(a_{t}|s_{t})A_{t}]\tag{2}$$
+
+The new objective function proposed by PPO is 
+
+$$J_{\theta}=\mathbb{E_{t}}[r_{t}(θ)A_{t}]=\mathbb{E_{t}}[\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}(θ)A_{t}]\tag{3}$$
 
 
 
