@@ -11,6 +11,19 @@ It was found that Q-learning (with function approximation) fails on many simple 
 First, let’s denote the probability ratio between old and new policies as:
 
 $$r_{t}(θ)=\frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}\tag{1}$$
+
+In math form, the classical Asynchronous Advantage Actor-Critic (A3C) objective could be written as
+
+$$\bigtriangledown J_{\theta}=\mathbb{E_{t}}[\bigtriangledown J_{\theta}]$$
+
+
+
+
+
+
+
+
+
 Then, the objective function of TRPO (on policy) becomes:
 
 JTRPO(θ)=E[r(θ)A^θold(s,a)]
