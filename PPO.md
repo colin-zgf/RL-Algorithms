@@ -41,7 +41,7 @@ PPO has been tested on a set of benchmark tasks and proved to produce awesome re
 
 An n-step look ahead advantage function is defined as:
 
-$$\hat A_{n}^{\pi} = \sum_{t^{'}=t}^{t+n}$$
+$$\hat A_{n}^{\pi} = \sum_{t^{'}=t}^{t+n}\gamma^{t^{'}-t}r(s_{t^{'}}, a_{t^{'}})-\hat V_{\phi}^{\pi}(s_{t}) + \gamma^{n}\hat V_{\phi}^{\pi}(s_{t+n})\tag{7}$$
 
 ## PPO Training
 
