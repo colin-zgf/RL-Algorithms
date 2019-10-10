@@ -1,4 +1,4 @@
-# A2C Algorithm
+# A2C Algorithm (Proposed in 2016)
 
 ## Background
 
