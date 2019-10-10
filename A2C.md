@@ -8,7 +8,18 @@ $$\bigtriangledown J \approx \mathbb{E}\begin{bmatrix}Q(s, a)\bigtriangledown lo
 
 The scaling factor $Q(s,a)$ specifies how much we want to increase or decrease the probability of the action taken in the particular state. In the REINFORCE method, we used the discounted total reward as the scaling of the gradient. As an attempt to increase REINFORCE stability, we subtracted the mean reward from the gradient scales. To understand why this helped, let us consider the very simple scenario of an optimization step on which we have three actions with different total discounted rewards: $Q_{1}$, $Q_{2}$ and $Q_{3}$. Now, let us consider the policy gradient with reward to the relative values of thos $Q_{s}$.
 
+As the first example, let both $Q_{1}$ and $Q_{2}$ be equal to some small positive number and $Q_{3}$ be large negative number. So, actions at the first and second steps led to some small reward, but the third step was not very successful. The resulted combined gradient for all three steps will try to push our policy far from the action at step three and slightly toward the actions taken at step one and two, which is a totally reasonable thing to do.
+
+Now let us imagine that our reward is always positive, only the value is different. This corresponds to adding some constant to all $Q_{1}$, $Q_{2}$ and $Q_{3}$. In this case, $Q_{1}$ and $Q_{2}$ become large positive numbers and $Q_{3}$ will have a small positive value. However, our policy update will become different. Next, we will try hard to push our policy towards actions at the first and second step, and slightly push it towards an action at step three. So, strictly speaking, we are no longer trying to avoid the action taken for step three, despite the fact that the relative rewards are the same.
+
+This dependency of our policy update on the constant added to the reward can slow down our training significantly, as we may require many more samples to average out the effect of such a shift in the PG. Even worse, as our total discounted reward changes over time, with the agent learning how to act better and better, our PG variance could also change. Variance for the version with the baseline is two-to-three orders of magnitude lower than the version without one, which helps the system to converge faster.
 
 ## A2C Objective
 
 A2C is a synchronous, deterministic version of A3C; that’s why it is named as “A2C” with the first “A” (“asynchronous”) removed. In A3C each agent talks to the global parameters independently, so it is possible sometimes the thread-specific agents would be playing with policies of different versions and therefore the aggregated update would not be optimal. To resolve the inconsistency, a coordinator in A2C waits for all the parallel actors to finish their work before updating the global parameters and then in the next iteration parallel actors starts from the same policy. The synchronized gradient update keeps the training more cohesive and potentially to make convergence faster.
+
+Making our baseline state-dependent (which intuitively is a good idea, as different states could have very different baselines) could reduce the variance. Remember in DQN, the total reward itself could be represented as a value of the state plus advantage of the action:
+
+$$Q(s, a) = V(s) + A(s, a)\tag{2}$$
+
+**So why can not we use $V(s)$ as a baseline?** In that case, the scale of our gradient will be just advantage $A(s,a)$, showing how this taken action is better in respect to the average state's value.
