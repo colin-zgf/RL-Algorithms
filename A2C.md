@@ -39,4 +39,4 @@ The A2C algorithm is given below
 
 * For $i$=$t$-1, $\cdots$, $t_{start}$ (note the steps are processed backwards)
 
-** Accumulate the PG 
+  - Accumulate the PG 
