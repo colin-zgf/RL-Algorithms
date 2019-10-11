@@ -28,15 +28,25 @@ When we know the value for any state (or, at least, have some approximation of i
 
 In practice, policy and value networks partially overlap, mostly due to the efficiency and convergence considerations. In this case, policy and value are implemented as different heads of the network, taking the output from the common body and transforming it into the probability distribution and a single number representing the value of the state. This helps both nework to share low level features such as convolution filters in the Atari agent, but combine them in a different way. The architecture is shown below:
 
+![image](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/a2c_architecture.png)
 
 The A2C algorithm is given below
 
-* Initilize network parameters $\theta$ with random values;
+* 1. Initilize network parameters $\theta$ with random values;
 
-* Play N steps in the environment using the current policy $\pi_{\theta}$, saving state $s_{t}$, action $a_{t}$ and reward $r_{t}$;
+* 2. Play N steps in the environment using the current policy $\pi_{\theta}$, saving state $s_{t}$, action $a_{t}$ and reward $r_{t}$;
 
-* $r$=0 if the end of the episode is reached for $V_{\theta}(s_{t})$
+* 3. $R$=0 if the end of the episode is reached for $V_{\theta}(s_{t})$
 
-* For $i$=$t$-1, $\cdots$, $t_{start}$ (note the steps are processed backwards)
+* 4. For $i$=$t$-1, $\cdots$, $t_{start}$ (note the steps are processed backwards)
 
   - Accumulate the PG 
+  $$\partial \theta_{\pi} \leftarrow \partial \theta_{\pi} + \bigtriangledown log\pi_{\theta}(a_{i}|s_{i})(R-V_{\theta}(s_{i}))\tag{3}$$
+  
+  - Accumulate the value gradients
+  
+  $$\partial \theta_{v} \leftarrow \partial \theta_{v} + \frac{\partial (R-V_{\theta}(s_{i}))^2}{\partial \theta_{v}}\tag{4}$$
+
+* 5. Update network parameters using the accumulated gradients, moving in the direction of PG $\partial \theta_{\pi}$ nad in the opposite direction of the value gradients $\partial \theta_{v}$
+
+* 6. Repeat from steps 2 until convergence is reached. 
