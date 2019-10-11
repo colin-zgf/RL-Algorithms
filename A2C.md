@@ -63,7 +63,7 @@ In practice, some considerations need to be taken:
 
 ## A2C Results
 
-The test was implemented on OpenAI gym case ""PongNoFrameskip-v4"". The value $V(s)$, advantage $A(s,a)$, reward/batch rewards, and loss (including value loss, policy loss, entropy loss and total loss) are displayed.
+The test was implemented on OpenAI gym case ""PongNoFrameskip-v4"". The value $V(s)$, advantage $A(s,a)$, reward/batch rewards, and loss (including value loss, policy loss, entropy loss and total loss) are displayed. We set the target rewards should be more than 18 which takes more than 6 million steps to converge.
 
 ![value](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/values.png) 
 ![advantage](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/advantage.png)
