@@ -13,6 +13,6 @@ Policy gradient is an approach to solve reinforcement learning problems. If you 
 
 ## Contents
 
-The following are included:
+The following algorithms are included:
 
 - [A2C](https://github.com/colin-zgf/RL-Algorithms/blob/master/A2C.md)
