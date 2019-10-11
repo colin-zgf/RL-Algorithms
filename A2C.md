@@ -49,4 +49,4 @@ The A2C algorithm is given below
 
 * 5. Update network parameters using the accumulated gradients, moving in the direction of PG $\partial \theta_{\pi}$ nad in the opposite direction of the value gradients $\partial \theta_{v}$
 
-* 6. Repeat from steps 2 until convergence is reached. 
+* 6. Repeat from steps * 2. until convergence is reached. 
