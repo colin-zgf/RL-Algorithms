@@ -65,18 +65,13 @@ In practice, some considerations need to be taken:
 
 The test was implemented on OpenAI gym case ""PongNoFrameskip-v4"". The value $V(s)$, advantage $A(s,a)$, reward/batch rewards, and loss (including value loss, policy loss, entropy loss and total loss) are displayed.
 
-![value](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/values.png)
-
+![value](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/values.png) 
 ![advantage](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/advantage.png)
 
 ![reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/reward.png)
-
 ![batch_reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/batch_rewards.png)
 
 ![value loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_value.png)
-
 ![policy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_policy.png)
 
-![entropy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_entropy.png)
-
-![total loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_total.png)
+![entropy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_entropy.png)![total loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_total.png)
