@@ -74,4 +74,5 @@ The test was implemented on OpenAI gym case ""PongNoFrameskip-v4"". The value $V
 ![value loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_value.png)
 ![policy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_policy.png)
 
-![entropy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_entropy.png)![total loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_total.png)
+![entropy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_entropy.png)
+![total loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/A2C_result/loss_total.png)
