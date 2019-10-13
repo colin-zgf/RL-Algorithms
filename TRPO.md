@@ -22,8 +22,8 @@ Third, should we constraint the policy changes so we don’t make too aggressive
 
 $$
 \begin{align}
-  f(x) = a + b \\
-       = c + d  \\
+  f(x) = a + b \\\ 
+       = c + d  \\\ 
 \end{align}
 $$
 
