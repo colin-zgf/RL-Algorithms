@@ -28,16 +28,15 @@ $$J(θ)=\sum_{s\in S} \rho^{\pi_{\theta_{old}}}  \sum_{a\in A} (\pi_{\theta}(a|s
 
 $$J(θ)= \sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\beta (a|s) \frac{\pi_{\theta}(a|s)}{\beta (a|s)}\hat{A_{\theta_{old}}}(s,a))\tag{4}$$ 
 
-$$J(θ)= \mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}, a \sim \beta}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\tag{5}$$
+$$J(θ)= \mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}, a \sim \beta}}\begin{bmatrix}\frac{\pi_{\theta}(a|s)}{\beta (a|s)}\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\tag{5}$$
 
 where $\theta_{old}$ is the policy parameters before the update and thus known to us; $\pi_{\theta_{old}}$ is defined in the same way as above; $\beta(a|s)$ is the behavior policy for collecting trajectories. Noted that we use an estimated advantage $A(.)$ rather than the true advantage function $A(.)$ because the true rewards are usually unknown.
 
 If on policy, the behavior policy is $\pi_{\theta_{old}}(a|s)$:
 
-$$J(θ)= \mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}, a \sim \pi_{\theta_{old}}}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\tag{5}$$
+$$J(θ)= \mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}, a \sim \pi_{\theta_{old}}}}\begin{bmatrix}\frac{\pi_{\theta}(a|s)}{\pi_{\theta_{old}} (a|s)}\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\tag{6}$$
 
-J(θ)=Es∼ρπθold,a∼πθold[πθ(a|s)πθold(a|s)A^θold(s,a)]
-TRPO aims to maximize the objective function J(θ) subject to, trust region constraint which enforces the distance between old and new policies measured by KL-divergence to be small enough, within a parameter δ:
+TRPO aims to maximize the objective function $J(\theta)$ subject to, trust region constraint which enforces the distance between old and new policies measured by $KL$-divergence to be small enough, within a parameter $\delta$:
 
 Es∼ρπθold[DKL(πθold(.|s)∥πθ(.|s)]≤δ
 In this way, the old and new policies would not diverge too much when this hard constraint is met. While still, TRPO can guarantee a monotonic improvement over policy iteration (Neat, right?). Please read the proof in the paper if interested :)
