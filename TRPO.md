@@ -38,7 +38,7 @@ $$J(θ)= \mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}, a \sim \pi_{\theta_{old}}}
 
 TRPO aims to maximize the objective function $J(\theta)$ subject to, trust region constraint which enforces the distance between old and new policies measured by $KL$-divergence to be small enough, within a parameter $\delta$:
 
-$$\mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}}\begin{bmatrix}D_{KL}(\pi_{\theta_{old}(.|s) || \pi_{\theta (.|s))\end{bmatrix}\tag{7} \leq \delta \tag{7}$$
+$$\mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}}\begin{bmatrix}D_{KL}(\pi_{\theta_{old}}(.|s) || \pi_{\theta} (.|s))\end{bmatrix}\tag{7} \leq \delta \tag{7}$$
 
 Es∼ρπθold[DKL(πθold(.|s)∥πθ(.|s)]≤δ
 In this way, the old and new policies would not diverge too much when this hard constraint is met. While still, TRPO can guarantee a monotonic improvement over policy iteration (Neat, right?). Please read the proof in the paper if interested :)
