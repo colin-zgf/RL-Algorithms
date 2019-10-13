@@ -24,9 +24,11 @@ To improve training stability, we should avoid parameter updates that change the
 
 If off policy, the objective function measures the total advantage over the state visitation distribution and actions, while the rollout is following a different behavior policy $\beta(a|s)$:
 
-$$\hat{A_{\theta_{old}}}(s,a)$$
+$$J(θ)=\sum_{s\in S} \rho^{\pi_{\theta_{old}}}  \sum_{a\in A} (\pi_{\theta}(a|s)\hat{A_{\theta_{old}}}(s,a))\tag{3}$$  
 
-$$\begin{align}J(θ)=\sum_{s\in S} \rho^{\pi_{\theta_{old}}}  \sum_{a\in A} (\pi_{\theta}(a|s)\hat{A_{\theta_{old}}}(s,a))  \\\ = \sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\beta (a|s) \frac{\pi_{\theta}(a|s)}{\beta (a|s)}\hat{A_{\theta_{old}}}(s,a)) \\\ = \mathbb{E_{\rho \sim \pi_{\theta_{old}}, a \sim \beta}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\end{align}$$
+$$J(θ)= \sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\beta (a|s) \frac{\pi_{\theta}(a|s)}{\beta (a|s)}\hat{A_{\theta_{old}}}(s,a))\tag{4}$$ 
+
+$$J(θ)= \mathbb{E_{\rho \sim \pi_{\theta_{old}}, a \sim \beta}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\tag{5}$$
 
 where θold is the policy parameters before the update and thus known to us; ρπθold is defined in the same way as above; β(a|s) is the behavior policy for collecting trajectories. Noted that we use an estimated advantage A^(.) rather than the true advantage function A(.) because the true rewards are usually unknown.
 
