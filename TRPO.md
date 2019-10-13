@@ -30,9 +30,9 @@ $$J(θ)= \sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\beta (a|s) \frac{\
 
 $$J(θ)= \mathbb{E_{\rho \sim \pi_{\theta_{old}}, a \sim \beta}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat{A_{\theta_{old}}}(s,a)\end{bmatrix}\tag{5}$$
 
-where θold is the policy parameters before the update and thus known to us; ρπθold is defined in the same way as above; β(a|s) is the behavior policy for collecting trajectories. Noted that we use an estimated advantage A^(.) rather than the true advantage function A(.) because the true rewards are usually unknown.
+where $\theta_{old}$ is the policy parameters before the update and thus known to us; $\pi_{\theta_{old}}$ is defined in the same way as above; $\beta(a|s)$ is the behavior policy for collecting trajectories. Noted that we use an estimated advantage $A^(.)$ rather than the true advantage function $A(.)$ because the true rewards are usually unknown.
 
-If on policy, the behavior policy is πθold(a|s):
+If on policy, the behavior policy is $\pi_{\theta_{old}}(a|s)$:
 
 J(θ)=Es∼ρπθold,a∼πθold[πθ(a|s)πθold(a|s)A^θold(s,a)]
 TRPO aims to maximize the objective function J(θ) subject to, trust region constraint which enforces the distance between old and new policies measured by KL-divergence to be small enough, within a parameter δ:
