@@ -10,7 +10,7 @@ $$J_{\theta}= \max \limits_{\tau \sim \pi_{\theta}} \mathbb{E}\begin{bmatrix}\ga
 
 First, PG computes the steepest ascent direction for the rewards **(policy gradient g)** and update the policy towards that direction.
 
-$$\bigtriangledown J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}gamma^{t}\bigtriangledown_{\theta}log\pi_{\theta}(a_{t}|s_{t})A_{t}\end{bmatrix}\tag{2}$$
+$$\bigtriangledown J_{\theta}=\mathbb{E_{t}}\begin{bmatrix}\gamma^{t}\bigtriangledown_{\theta}log\pi_{\theta}(a_{t}|s_{t})A_{t}\end{bmatrix}\tag{2}$$
 
 However, this method uses the first-order derivative and approximates the surface to be flat. If the surface has high curvature, we can make horrible moves. **Too large of a step leads to a disaster. But, if the step is too small, the model learns too slow.**
 
