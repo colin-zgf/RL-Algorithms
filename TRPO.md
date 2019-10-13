@@ -20,18 +20,12 @@ Third, should we constraint the policy changes so we don’t make too aggressive
 
 ## TRPO Mechanism
 
-$$
-\begin{align}
-  f(x) = a + b \\\ 
-       = c + d  \\\ 
-\end{align}
-$$
-
 To improve training stability, we should avoid parameter updates that change the policy too much at one step. Trust region policy optimization (TRPO) (Schulman, et al., 2015) carries out this idea by enforcing a KL divergence constraint on the size of policy update at each iteration. This algorithm is similar to natural policy gradient methods and is effective for optimizing large nonlinear policies such as neural networks.
 
 If off policy, the objective function measures the total advantage over the state visitation distribution and actions, while the rollout is following a different behavior policy $\beta(a|s)$:
 
-J(θ)=∑s∈Sρπθold∑a∈A(πθ(a|s)A^θold(s,a))=∑s∈Sρπθold∑a∈A(β(a|s)πθ(a|s)β(a|s)A^θold(s,a))=Es∼ρπθold,a∼β[πθ(a|s)β(a|s)A^θold(s,a)]; Importance sampling
+$$\begin{align}J(θ)=\sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\pi_{\theta}(a|s)\hat_{A_{\theta_{old}}}(s,a)) \\\ = \sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\beta (a|s) \frac{\pi_{\theta}(a|s)}{\beta (a|s)}\hat_{A_{\theta_{old}}}(s,a)) \\\ = \mathbb{E_{\rho \sim \pi_{\theta_{old}}, a \sim \beta}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat_{A_{\theta_{old}}}(s,a)\end{bmatrix}\end{align}$$
+
 where θold is the policy parameters before the update and thus known to us; ρπθold is defined in the same way as above; β(a|s) is the behavior policy for collecting trajectories. Noted that we use an estimated advantage A^(.) rather than the true advantage function A(.) because the true rewards are usually unknown.
 
 If on policy, the behavior policy is πθold(a|s):
