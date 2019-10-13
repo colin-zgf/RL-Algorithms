@@ -18,7 +18,14 @@ Second, it is very hard to have a proper learning rate in RL.
 
 Third, should we constraint the policy changes so we don’t make too aggressive moves? In fact, this is what TRPO does. It limits the parameter changes that are sensitive to the terrain. But providing this solution is not obvious. We adjust the policy by low-level model parameters. To restrict the policy change, what are the corresponding threshold for the model parameters? How can we translate the change in the policy space to the model parameter space?
 
-## TROP Mechanism
+## TRPO Mechanism
+
+$$
+\begin{align}
+  f(x) = a + b \\
+       = c + d  \\
+\end{align}
+$$
 
 To improve training stability, we should avoid parameter updates that change the policy too much at one step. Trust region policy optimization (TRPO) (Schulman, et al., 2015) carries out this idea by enforcing a KL divergence constraint on the size of policy update at each iteration. This algorithm is similar to natural policy gradient methods and is effective for optimizing large nonlinear policies such as neural networks.
 
