@@ -15,7 +15,7 @@ Policy gradient is an approach to solve reinforcement learning problems. If you 
 
 The following algorithms are included:
 
-- [NPG](https://github.com/colin-zgf/RL-Algorithms/edit/master/NPG.md)
+- [NPG](https://github.com/colin-zgf/RL-Algorithms/blob/master/NPG.md)
 - [A2C](https://github.com/colin-zgf/RL-Algorithms/blob/master/A2C.md)
 - [TRPO](https://github.com/colin-zgf/RL-Algorithms/blob/master/TRPO.md)
 - [PPO](https://github.com/colin-zgf/RL-Algorithms/blob/master/PPO.md)
