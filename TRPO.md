@@ -6,7 +6,7 @@ Most algorithms for policy optimization can be classified into three broad categ
 
 In RL, we optimize a policy θ for the maximum expected discounted rewards. Nevertheless, there are a few challenges that hurt PG performance. 
 
-$$J_{\theta}= \max \limits_{\tau ~ \pi_{\theta}} \mathbb{E}\begin{bmatrix}\gamma^{t}r_{t}\end{bmatrix}\tag{1}$$
+$$J_{\theta}= \max \limits_{\tau \sim \pi_{\theta}} \mathbb{E}\begin{bmatrix}\gamma^{t}r_{t}\end{bmatrix}\tag{1}$$
 
 To improve training stability, we should avoid parameter updates that change the policy too much at one step. Trust region policy optimization (TRPO) (Schulman, et al., 2015) carries out this idea by enforcing a KL divergence constraint on the size of policy update at each iteration. . This algorithm is similar to natural policy gradient methods and is effective for optimizing large nonlinear policies such
 as neural networks.
