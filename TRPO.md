@@ -24,7 +24,7 @@ To improve training stability, we should avoid parameter updates that change the
 
 If off policy, the objective function measures the total advantage over the state visitation distribution and actions, while the rollout is following a different behavior policy $\beta(a|s)$:
 
-$$\hat_{A_{\theta_{old}}}(s,a)$$
+$$\hat{A_{\theta_{old}}}(s,a)$$
 
 $$\begin{align}J(θ)=\sum_{s\in S} \rho^{\pi_{\theta_{old}}}  \sum_{a\in A} (\pi_{\theta}(a|s)\hat_{A_{\theta_{old}}}(s,a))  \\\ = \sum_{s\in S}\rho^{\pi_{\theta_{old}}}\sum_{a\in A}(\beta (a|s) \frac{\pi_{\theta}(a|s)}{\beta (a|s)}\hat_{A_{\theta_{old}}}(s,a)) \\\ = \mathbb{E_{\rho \sim \pi_{\theta_{old}}, a \sim \beta}}\begin{bmatrix}\pi_{\theta}(a|s)\beta (a|s)\hat_{A_{\theta_{old}}}(s,a)\end{bmatrix}\end{align}$$
 
