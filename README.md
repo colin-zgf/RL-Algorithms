@@ -4,7 +4,15 @@
   <tr>
     <td><img src="images/DDPG_result/ddpg_robots1.gif?raw=true" height="260px" width="400px"></td>
     <td><img src="images/PG_result/pg.gif?raw=true" height="260px" width="400px"></td>
+  </tr>
+</table>  
+<table>
+  <tr>
     <td><img src="images/PPO_result/ppo.gif?raw=true" height="260px" width="400px"></td>
+  </tr>
+</table>
+<table>
+  <tr>
     <td><img src="images/TRPO_result/trpo.gif?raw=true" height="260px" width="400px"></td>
     <td><img src="images/NPG_result/npg.gif?raw=true" height="260px" width="400px"></td>
   </tr>
