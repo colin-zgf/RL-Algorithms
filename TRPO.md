@@ -41,3 +41,9 @@ TRPO aims to maximize the objective function $J(\theta)$ subject to, trust regio
 $$\mathbb{E_{s \sim \rho^{\pi_{\theta_{old}}}}}\begin{bmatrix}D_{KL}(\pi_{\theta_{old}}(.|s)  || \pi_{\theta} (.|s))\end{bmatrix} \leq \delta \tag{7}$$
 
 In this way, the old and new policies would not diverge too much when this hard constraint is met. While still, TRPO can guarantee a monotonic improvement over policy iteration.
+
+## Result
+
+The experiment was implemented on the 'Ant-v2' of Mujuco.
+
+![TRPO](https://github.com/colin-zgf/RL-Algorithms/tree/master/images/TRPO_result)
