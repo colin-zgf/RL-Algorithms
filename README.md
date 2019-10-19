@@ -9,6 +9,7 @@
 </table>  
 <table>
   <tr>
+    <td><img src="images/PPO_result/DDPG_arm.gif?raw=true" height="260px" width="400px"></td>
     <td><img src="images/TRPO_result/trpo.gif?raw=true" height="260px" width="400px"></td>
     <td><img src="images/NPG_result/npg.gif?raw=true" height="260px" width="400px"></td>
   </tr>
