@@ -20,4 +20,4 @@ $$\theta_{new} = \theta_{old} + d^*\tag{2}$$
 
 In Natural gradient descent, the stepwise in parameter space is determined by considering the KL divergence in the distributions before and after the update:
 
-$$d^*= arg \max \limits_{d, s.t. KL(\pi_{\theta} \begin{vmatrix} d \end{vmatrix} \pi_{\theta+d} ) \le \epsilon} J (\theta + d)\tag{3}$$
+$$d^*= arg \max \limits_{d, s.t. KL(\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} ) \le \epsilon} J (\theta + d)\tag{3}$$
