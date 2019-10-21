@@ -30,4 +30,6 @@ $$d^*= arg \max \limits_{d} J (\theta + d) - \lambda (D_{KL} (\pi_{\theta} \begi
 
 Apply first order Taylor expansion for the loss and second order for the KL, we can get:
 
-$$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T \bigtriangledown_{\theta}^2 (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} )\mid_{\theta=\theta_{old}} \cdot d) + \lambda \epsilon$$
+$$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T \bigtriangledown_{\theta}^2 (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} )\mid_{\theta=\theta_{old}} d) + \lambda \epsilon\tag{5}$$
+
+- Term $D_{KL} (\pi_{\theta_old} \begin{vmatrix} \end{vmatrix} \pi_{\theta} )$ 
