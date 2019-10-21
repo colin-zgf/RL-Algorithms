@@ -32,6 +32,10 @@ Apply first order Taylor expansion for the loss and second order for the KL, we 
 
 $$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T \bigtriangledown_{\theta}^2 (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} )\mid_{\theta=\theta_{old}} d) + \lambda \epsilon\tag{5}$$
 
-- Taylor Expansion of KL
+### Taylor Expansion of KL
 
 $$D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \approx D_{KL} (p_{\theta_{old}} \mid p_{\theta_{old}}) + d^T \bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} + \frac {1}{2} d^T \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}}\tag{6}$$
+
+- Term $\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}}$
+
+$$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = -\bigtriangledown_{\theta} \mathbb{E_{x \sim p_{theta_{old}}}} log P_{\theta} \mid_{\theta=\theta_{old}}$$
