@@ -12,4 +12,4 @@ Vanilla Policy Gradient faces challenges including bad sample efficiency and poo
 
 The stepwise in gradient descent results from solving the following optimization problem, e.g., using line search:
 
-$$d*= \max \limits_{\begin{Vmatrix} d \end{Vmatrix} \le \epsilon}} J (\theta + d)\tag{1}$$
+$$d*= \max \limits_{\begin{Vmatrix} d \end{Vmatrix} \le \epsilon} J (\theta + d)\tag{1}$$
