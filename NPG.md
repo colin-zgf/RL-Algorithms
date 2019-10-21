@@ -8,7 +8,7 @@ Vanilla Policy Gradient faces challenges including bad sample efficiency and poo
 
 - Convergence is about whether the policy will converge to an optimal policy.
 
-**Natural Policy Gradient (NPG) converges the model parameters better. It avoids taking bad actions that collapse the training performance** NPG is based on minorize-maximization algorithm which optimizes a policy for the maximum discounted rewards.
+**Natural Policy Gradient (NPG) converges the model parameters better. It avoids taking bad actions that collapse the training performance**. NPG is based on minorize-maximization algorithm which optimizes a policy for the maximum discounted rewards.
 
 ## Mathematics in NPG
 
@@ -32,4 +32,6 @@ Apply first order Taylor expansion for the loss and second order for the KL, we 
 
 $$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T \bigtriangledown_{\theta}^2 (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} )\mid_{\theta=\theta_{old}} d) + \lambda \epsilon\tag{5}$$
 
-- Term $D_{KL} (\pi_{\theta_old} \begin{vmatrix} \end{vmatrix} \pi_{\theta} )$ 
+- Taylor Expansion of KL
+
+$$D_{KL} (p_{\theta_old} \mid p_{\theta}) \approx D_{KL} (p_{\theta_old} \mid p_{\theta_{old}}) + d^T \bigtriangledown_{\theta} D_{KL} (p_{\theta_old} \mid p_{\theta}) \mid_{\theta=\theta_{old}} + \frac {1}{2} d^T \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_old} \mid p_{\theta})\mid_{\theta=\theta_{old}}\tag{6}$$
