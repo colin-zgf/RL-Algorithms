@@ -54,7 +54,7 @@ $$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\the
 
 $$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta}^2 log P_{\theta} (x) \mid_{\theta=\theta_{old}}\tag{13}$$
 
-$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta F^{-1}(\theta_{old})heta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta} (\frac{\bigtriangledown_{\theta} P_{\theta} (x)}{P_{\theta} (x)})  \mid_{\theta=\theta_{old}}\tag{14}$$
+$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta} (\frac{\bigtriangledown_{\theta} P_{\theta} (x)}{P_{\theta} (x)})  \mid_{\theta=\theta_{old}}\tag{14}$$
 
 $$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} (\frac{\bigtriangledown_{\theta}^2 P_{\theta} (x) P_{\theta} (x) - \bigtriangledown_{\theta} P_{\theta} (x)\bigtriangledown_{\theta} P_{\theta} (x)^T}{P_{\theta} (x)^2})  \mid_{\theta=\theta_{old}}\tag{15}$$
 
@@ -108,3 +108,9 @@ $$D_{KL} (\pi_{\theta_{old}} \mid \pi_{\theta}) \approx \frac {1}{2} (\theta-\th
 $$\epsilon = \frac {1}{2} (\alpha g_{N})^T F(\alpha g_{N})\tag{28}$$
 
 $$\alpha = \sqrt {\frac{2\epsilon}{g_{N}^T F g_{N}}}\tag{29}$$
+
+## NPG Experiment
+
+The experiment was implemented on the 'HalfCheetah-v2' of Mujuco.
+
+![](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/NPG_result/npg.gif)
