@@ -38,4 +38,8 @@ $$D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \approx D_{KL} (p_{\theta_{old}} \mi
 
 - Term $\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}}$
 
-$$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = -\bigtriangledown_{\theta} \mathbb{E_{x \sim p_{theta_{old}}}} log P_{\theta} \mid_{\theta=\theta_{old}}$$
+$$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = -\bigtriangledown_{\theta} \mathbb{E_{x \sim p_{theta_{old}}}} log P_{\theta} (x) \mid_{\theta=\theta_{old}}\tag{7}$$
+
+$$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{theta_{old}}}} \bigtriangledown_{\theta}log P_{\theta} (x) \mid_{\theta=\theta_{old}}\tag{8}$$
+
+$$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{theta_{old}}}} \frac{1}{P_{\theta_{old}} (x)} \bigtriangledown_{\theta} P_{\theta} (x) \mid_{\theta=\theta_{old}}\tag{9}$$
