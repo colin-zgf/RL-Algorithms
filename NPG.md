@@ -74,3 +74,17 @@ $$F(\theta_{old}) = \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_
 Up to now, we will conclude that:
 
 $$D_{KL} (p_{\theta_{old}} \mid p_{\theta}) = \frac{1}{2}d^TF(\theta_{old})d = \frac{1}{2}(\theta-\theta_{old})^TF(\theta_{old})(\theta-\theta_{old})\tag{20}$$
+
+Since KL divergence is roughly analogous to a distance measure between distributions, Fisher information serves as a local distance metric between distributions: how much you change the distribution if you move the parameters a little bit in a given direction.
+
+Substitute for the information matrix in Eqn.(5), one achieves
+
+$$d^*=arg \max \limits_{d} \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T F(\theta_{old}) d)tag{21}$$
+
+Express the formula in the $min$ format
+
+$$d^*=arg \max \limits_{d} -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)tag{22}$$
+
+Setting the gradient to zero:
+
+$$0=\frac {\partial -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)}{\partial d} = \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} + \frac {1}{2}\lambda ( F(\theta_{old}) d)tag{23}$$
