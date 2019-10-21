@@ -79,11 +79,11 @@ Since KL divergence is roughly analogous to a distance measure between distribut
 
 Substitute for the information matrix in Eqn.(5), one achieves
 
-$$d^*=arg \max \limits_{d} \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T F(\theta_{old}) d)tag{21}$$
+$$d^*=arg \max \limits_{d} \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d - \frac {1}{2}\lambda (d^T F(\theta_{old}) d)\tag{21}$$
 
 Express the formula in the $min$ format
 
-$$d^*=arg \max \limits_{d} -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)tag{22}$$
+$$d^*=arg \max \limits_{d} -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)\tag{22}$$
 
 Setting the gradient to zero:
 
