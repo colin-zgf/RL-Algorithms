@@ -30,6 +30,4 @@ $$d^*= arg \max \limits_{d} J (\theta + d) - \lambda (D_{KL} (\pi_{\theta} \begi
 
 Apply first order Taylor expansion for the loss and second order for the KL, we can get:
 
-$$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) {\theta=\theta_{old}}$$
-
-$$\left.\frac{\partial f(x,y)}{\partial x}\right.$$
+$$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) |_{\theta=\theta_{old}}$$
