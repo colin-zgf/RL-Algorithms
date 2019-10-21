@@ -70,3 +70,7 @@ However, in many algorithm, like Actor-Critic algorithm, the variance in the $Q$
 ## PPO Training
 
 The PPO method uses a slightly different training procedure. When a long sequence of samples is obtained from the environment and then advantage is estimated for the whole sequence, before several epoches of training are performed. **PPO assumes that a large amount of transitions will be obtained from the environment for every subiteration.**
+
+The experiment was implemented on the 'Humanoid-v2' of Mujuco.
+
+![](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/PPO_result/ppo.gif)
