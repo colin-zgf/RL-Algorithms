@@ -46,4 +46,4 @@ In this way, the old and new policies would not diverge too much when this hard 
 
 The experiment was implemented on the 'Ant-v2' of Mujuco.
 
-![](https://github.com/colin-zgf/RL-Algorithms/tree/master/images/TRPO_result/trpo.gif) 
+![](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/TRPO_result/trpo.gif) 
