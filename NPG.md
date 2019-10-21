@@ -58,4 +58,11 @@ $$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\th
 
 $$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} (\frac{\bigtriangledown_{\theta}^2 P_{\theta} (x) P_{\theta} (x) - \bigtriangledown_{\theta} P_{\theta} (x)\bigtriangledown_{\theta} P_{\theta} (x)^T}{P_{\theta} (x)^2})  \mid_{\theta=\theta_{old}}\tag{15}$$
 
-$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \frac{\bigtriangledown_{\theta}^2 P_{\theta} (x) \mid_{\theta=\theta_{old}}}{P_{\theta_{old}}(x)} +  \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta} P_{\theta} (x) \bigtriangledown_{\theta} P_{\theta} (x)^T\mid_{\theta=\theta_{old}}\tag{16}$$
+$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \frac{\bigtriangledown_{\theta}^2 P_{\theta} (x) \mid_{\theta=\theta_{old}}}{P_{\theta_{old}}(x)} +  \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta} log P_{\theta} (x) \bigtriangledown_{\theta} log P_{\theta} (x)^T\mid_{\theta=\theta_{old}}\tag{16}$$
+
+
+$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta} log P_{\theta} (x) \bigtriangledown_{\theta} log P_{\theta} (x)^T\mid_{\theta=\theta_{old}}\tag{17}$$
+
+The Fisher Information Matrix (FIM) is defined as:
+
+$$F(\theta) = \mathbb{E_{\theta}} \begin{bmatrix}\bigtriangledown_{\theta} log P_{\theta} (x) \bigtriangledown_{\theta} log P_{\theta} (x)^T\end{bmatrix}\tag{18}$$
