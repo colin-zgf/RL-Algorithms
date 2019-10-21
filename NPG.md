@@ -32,4 +32,4 @@ Apply first order Taylor expansion for the loss and second order for the KL, we 
 
 $$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta) {\theta=\theta_{old}}$$
 
-$$\left.\frac{\partial f(x,y)}{\partial x}\right$$
+$$\left.\frac{\partial f(x,y)}{\partial x}\right.$$
