@@ -66,3 +66,7 @@ $$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\th
 The Fisher Information Matrix (FIM) is defined as:
 
 $$F(\theta) = \mathbb{E_{\theta}} \begin{bmatrix}\bigtriangledown_{\theta} log P_{\theta} (x) \bigtriangledown_{\theta} log P_{\theta} (x)^T\end{bmatrix}\tag{18}$$
+
+Thus,
+
+$$F(\theta_{old}) = \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}})\mid p_{\theta}) \mid_{\theta=\theta_{old}}\tag{18}$$
