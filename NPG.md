@@ -10,6 +10,8 @@ Vanilla Policy Gradient faces challenges including bad sample efficiency and poo
 
 **Natural Policy Gradient (NPG) converges the model parameters better. It avoids taking bad actions that collapse the training performance** NPG is based on minorize-maximization algorithm which optimizes a policy for the maximum discounted rewards.
 
+## Mathematics in NPG
+
 The stepwise in gradient descent results from solving the following optimization problem, e.g., using line search:
 
 $$d^*= arg \max \limits_{\begin{Vmatrix} d \end{Vmatrix} \le \epsilon} J (\theta + d)\tag{1}$$
@@ -21,3 +23,7 @@ $$\theta_{new} = \theta_{old} + d^*\tag{2}$$
 In Natural gradient descent, the stepwise in parameter space is determined by considering the KL divergence in the distributions before and after the update:
 
 $$d^*= arg \max \limits_{d, s.t. KL(\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} ) \le \epsilon} J (\theta + d)\tag{3}$$
+
+Unconstrained penalized objective:
+
+$$d^*= arg \max \limits_{d} J (\theta + d) - \lambda (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} ) - \epsilon)\tag{3}$$
