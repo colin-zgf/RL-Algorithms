@@ -69,4 +69,8 @@ $$F(\theta) = \mathbb{E_{\theta}} \begin{bmatrix}\bigtriangledown_{\theta} log P
 
 Thus,
 
-$$F(\theta_{old}) = \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}})\mid p_{\theta}) \mid_{\theta=\theta_{old}}\tag{18}$$
+$$F(\theta_{old}) = \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}}\tag{19}$$
+
+Up to now, we will conclude that:
+
+$$D_{KL} (p_{\theta_{old}} \mid p_{\theta}) = \frac{1}{2}d^TF(\theta_{old})d = \frac{1}{2}(\theta-\theta_{old})^TF(\theta_{old})(\theta-\theta_{old})\tag{20}$$
