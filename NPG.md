@@ -87,4 +87,16 @@ $$d^*=arg \max \limits_{d} -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\th
 
 Setting the gradient to zero:
 
-$$0=\frac {\partial (-\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)}{\partial d} = \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} + \frac {1}{2}\lambda ( F(\theta_{old}) d)\tag{23}$$
+$$0=\frac {\partial (-\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)}{\partial d} = -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} + \frac {1}{2}\lambda ( F(\theta_{old}) d)\tag{23}$$
+
+Thus, 
+
+$$d=\frac{2}{\lambda}F^{-1}(\theta_{old})\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}}\tag{24}$$
+
+Then the natural gradient is:
+
+$$\bigtriangledown_{natural} J(\theta) = F^{-1}(\theta_{old})\bigtriangledown J(\theta)\tag{25}$$
+
+and 
+
+$$\theta_{new}=\theta_{old} + \alpha \cdot F^{-1}(\theta_{old}) \hat g$$
