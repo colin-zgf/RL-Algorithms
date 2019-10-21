@@ -26,4 +26,8 @@ $$d^*= arg \max \limits_{d, s.t. KL(\pi_{\theta} \begin{vmatrix} \end{vmatrix} \
 
 Unconstrained penalized objective:
 
-$$d^*= arg \max \limits_{d} J (\theta + d) - \lambda (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} ) - \epsilon)\tag{3}$$
+$$d^*= arg \max \limits_{d} J (\theta + d) - \lambda (D_{KL} (\pi_{\theta} \begin{vmatrix} \end{vmatrix} \pi_{\theta+d} ) - \epsilon)\tag{4}$$
+
+Apply first order Taylor expansion for the loss and second order for the KL, we can get:
+
+$$d^*=arg \max \limits_{d} J (\theta_{old}) + bigtriangledown_{\theta} J(\theta)|_{\theta=\theta_{old}}$$
