@@ -87,4 +87,4 @@ $$d^*=arg \max \limits_{d} -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\th
 
 Setting the gradient to zero:
 
-$$0=\frac {\partial -\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)}{\partial d} = \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} + \frac {1}{2}\lambda ( F(\theta_{old}) d)tag{23}$$
+$$0=\frac {\partial (-\bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} \cdot d + \frac {1}{2}\lambda (d^T F(\theta_{old}) d)}{\partial d} = \bigtriangledown_{\theta} J(\theta) \mid_{\theta=\theta_{old}} + \frac {1}{2}\lambda ( F(\theta_{old}) d)\tag{23}$$
