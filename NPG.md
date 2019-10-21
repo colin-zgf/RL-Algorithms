@@ -49,3 +49,11 @@ $$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\the
 $$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = - \int_{x} \bigtriangledown_{\theta} P_{\theta} (x) \mid_{\theta=\theta_{old}}\tag{11}$$
 
 $$\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} = - \bigtriangledown_{\theta} \int_{x}  P_{\theta} (x) \mid_{\theta=\theta_{old}} = 0\tag{12}$$
+
+- Term $\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}}$
+
+$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta}^2 log P_{\theta} (x) \mid_{\theta=\theta_{old}}\tag{13}$$
+
+$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} \bigtriangledown_{\theta} (\frac{\bigtriangledown_{\theta} P_{\theta} (x)}{P_{\theta} (x)})  \mid_{\theta=\theta_{old}}\tag{14}$$
+
+$$\bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} = - \mathbb{E_{x \sim p_{\theta_{old}}}} (\frac{\bigtriangledown_{\theta}^2 P_{\theta} (x) P_{\theta} (x) - \bigtriangledown_{\theta} P_{\theta} (x)\bigtriangledown_{\theta} P_{\theta} (x)^T}{P_{\theta} (x)^2})  \mid_{\theta=\theta_{old}}\tag{15}$$
