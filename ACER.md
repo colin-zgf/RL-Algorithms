@@ -53,4 +53,4 @@ $$(Q^{ret}(s,a)−Q(s,a))\bigtriangledown Q(s,a)\tag{6}$$
 
 To safe-guard against high variance, the author proposes to truncate the importance weights and introduce a correction term. The off-policy ACER gradient:
 
-$$\hat{g_{t}}^{acer} = \overline{\rho_{t}} \bigtriangledown_{\theta} log \pi_{\theta} (a_{t} \mid x_{t}) \begin{bmatrix} Q^{ret}(x_{t}, a_{t} - V_{\theta_{v}}(x_{t}))\end{bmatrix}$$
+$$\hat{g_{t}}^{acer} = \overline{\rho_{t}} \bigtriangledown_{\theta} log \pi_{\theta} (a_{t} \mid x_{t}) \begin{bmatrix} Q^{ret}(x_{t}, a_{t} - V_{\theta_{v}}(x_{t}))\end{bmatrix} + \mathbb{E_{a \sim \pi}}\begin{vmatrix}\max (0, \frac{\rho_{t}(a) - c}{\rho_{t}(a)}) \bigtriangledown_{\theta} log \pi_{\theta} (a \mid x_{t}) \begin{bmatrix}Q_{\theta_{v}}(x_{t}, a) - V_{\theta_{v}}(x_{t})\end{bmatrix} \end{vmatrix}\tag{7}$$
