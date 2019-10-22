@@ -43,4 +43,14 @@ $$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t}  \frac{\pi(a_{1}\mid s_{1}) \pi(a_{
 
 The product of importance weights looks pretty scary when we start imagining how it can cause super high variance and even explode. Retrace $Q$-value estimation method modifies $\Delta Q$ to have importance weights truncated by no more than a constant $c$:
 
-$$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t} min(c, \frac{\pi(a_{1}\mid s_{1}) \pi(a_{2}\mid s_{2}) \cdots \pi(a_{t}\mid s_{t})}{\beta(a_{1}\mid s_{1}) \beta(a_{2}\mid s_{2}) \cdots \beta(a_{t}\mid s_{t})} )\delta_{t}\tag{5}$$
+$$\Delta Q^{ret} (s_{t}, a_{t}) = \gamma^{t} min(c, \frac{\pi(a_{1}\mid s_{1}) \pi(a_{2}\mid s_{2}) \cdots \pi(a_{t}\mid s_{t})}{\beta(a_{1}\mid s_{1}) \beta(a_{2}\mid s_{2}) \cdots \beta(a_{t}\mid s_{t})} )\delta_{t}\tag{5}$$
+
+ACER uses $Q^{ret}$ as the target to train the critic by minimizing the $L_{2}$ error term with the gradient: 
+
+$$(Q^{ret}(s,a)−Q(s,a))\bigtriangledown Q(s,a)\tag{6}$$
+
+### Importance Weight Truncation With Bias Correction
+
+To safe-guard against high variance, the author proposes to truncate the importance weights and introduce a correction term. The off-policy ACER gradient:
+
+$$$$
