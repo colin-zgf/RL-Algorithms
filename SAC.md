@@ -77,7 +77,9 @@ where $\overline{\psi}$ is the target value function which is the exponential mo
 
 SAC updates the policy to minimize the KL-divergence:
 
-$$\pi_{new} = arg \min \limits_{\pi^' \in \Pi} D_{KL}(\pi^' (\cdot \mid s_{t}) \mid \mid \frac{exp(Q^{\pi_{old}}(s_{t}, \cdot))}{Z^{\pi_{old}}(s_{t})})\tag{9}$$
+$$D_{KL}(\pi^' (\cdot \mid s_{t}) \mid \mid \frac{exp(Q^{\pi_{old}}(s_{t}, \cdot))}{Z^{\pi_{old}}(s_{t})}))$$
+
+$$\pi_{new} = arg \min \limits_{\pi^' \in \Pi} D_{KL}(\pi^' (\cdot \mid s_{t}) \mid \mid \frac{exp(Q^{\pi_{old}}(s_{t}, \cdot))}{Z^{\pi_{old}}(s_{t})}))\tag{9}$$
 
 $$\pi_{new} = arg \min \limits_{\pi^' \in \Pi} D_{KL}(\pi^' (\cdot \mid s_{t}) \mid \mid \exp(Q^{\pi_{old}}(s_{t}, \cdot))-log Z^{\pi_{old}}(s_{t})))\tag{10}$$
 
