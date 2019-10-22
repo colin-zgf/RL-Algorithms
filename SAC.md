@@ -40,8 +40,8 @@ where H(.) is the entropy measure and α controls how important the entropy term
 Precisely, SAC aims to learn three functions:
 
 - The policy with parameter $\theta$, $\pi_{\theta}$.
-- Soft Q-value function parameterized by $w%, $Q_{w}$.
-- Soft state value function parameterized by $\Phi$, $V_{\Phi}$; theoretically we can infer $V$ by knowing $Q$ and $\pi$, but in practice, it helps stabilize the training.
+- Soft Q-value function parameterized by $w$, $Q_{w}$.
+- Soft state value function parameterized by $\Psi$, $V_{\Psi}$; theoretically we can infer $V$ by knowing $Q$ and $\pi$, but in practice, it helps stabilize the training.
 
 Soft Q-value and soft state value are defined as:
 
