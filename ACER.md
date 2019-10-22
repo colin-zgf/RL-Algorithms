@@ -53,4 +53,4 @@ $$(Q^{ret}(s,a)−Q(s,a))\bigtriangledown Q(s,a)\tag{6}$$
 
 To safe-guard against high variance, the author proposes to truncate the importance weights and introduce a correction term. The off-policy ACER gradient:
 
-$$\hat{g_{t}}$$
+$$\hat{g_{t}}^{acer}$$
