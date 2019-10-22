@@ -43,7 +43,12 @@ Precisely, SAC aims to learn three functions:
 - Soft Q-value function parameterized by $w$, $Q_{w}$.
 - Soft state value function parameterized by $\Psi$, $V_{\Psi}$; theoretically we can infer $V$ by knowing $Q$ and $\pi$, but in practice, it helps stabilize the training.
 
-Soft Q-value and soft state value are defined as:
+Soft Q-value and soft state value according to Bellman equation are defined as:
+
+$$Q(s_{t},a_{t}) = r(s_{t},a_{t}) + \gamma \mathbb{E_{s_{t+1} \sim \rho_{\pi}(s)}} \begin{bmatrix}V(s_{t+1}) \end{bmatrix}\tag{2}$$
+
+$$V(s_{t}) = r(s_{t},a_{t}) + \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}V(s_{t+1})Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix}\tag{3}$$
+
 
 Q(st,at)where V(st)=r(st,at)+γEst+1∼ρπ(s)[V(st+1)]=Eat∼π[Q(st,at)−αlogπ(at|st)]; according to Bellman equation.; soft state value function.
 Thus, Q(st,at)=r(st,at)+γE(st+1,at+1)∼ρπ[Q(st+1,at+1)−αlogπ(at+1|st+1)]
