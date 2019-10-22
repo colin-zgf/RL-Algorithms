@@ -69,10 +69,17 @@ The soft Q function is trained to minimize the soft Bellman residual:
 
 $$J_{Q}(w) = \mathbb{E_{s_{t}, a_{t} \sim D}}\begin{bmatrix} \frac{1}{2}(Q_{w}(s_{t}, a_{t})-(r(s_{t}, a_{t}) + \gamma \mathbb{E_{s_{t+1} \sim \rho_{\pi}(s)}}\begin{bmatrix}V_{\overline{\psi}}(s_{t+1}) \end{bmatrix})^2\end{bmatrix}\tag{7}$$
 
-JQ(w)with gradient: ∇wJQ(w)=E(st,at)∼D[12(Qw(st,at)−(r(st,at)+γEst+1∼ρπ(s)[Vψ¯(st+1)]))2]=∇wQw(st,at)(Qw(st,at)−r(st,at)−γVψ¯(st+1))
-where ψ¯ is the target value function which is the exponential moving average (or only gets updated periodically in a “hard” way), just like how the parameter of the target Q network is treated in DQN to stabilize the training.
+with gradient: 
+
+$$\bigtriangledown_{w} J_{Q}(w)= \bigtriangledown_{w} Q_{w}(s_{t}, a_{t}) (Q_{w}(s_{t}, a_{t})-r(s_{t}, a_{t}) - \gamma  V_{\overline{\psi}}(s_{t+1}))\tag{8}$$
+
+where $\overline{\psi}$ is the target value function which is the exponential moving average (or only gets updated periodically in a “hard” way), just like how the parameter of the target Q network is treated in DQN to stabilize the training.
 
 SAC updates the policy to minimize the KL-divergence:
+
+$$\pi_{new} = arg \min \limits_{\pi^' \in \Pi} D_{KL}(\pi^' (\cdot \mid s_{t}) \mid \mid \frac{exp(Q^{\pi_{old}}(s_{t}, \cdot))}{Z^{\pi_{old}}(s_{t})})\tag{9}$$
+
+$$\pi_{new} = arg \min \limits_{\pi^' \in \Pi} D_{KL}(\pi^' (\cdot \mid s_{t}) \mid \mid \exp(Q^{\pi_{old}}(s_{t}, \cdot))-log Z^{\pi_{old}}(s_{t})))\tag{10}$$
 
 πnewobjective for update: Jπ(θ)=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.))Zπold(st))=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.)−logZπold(st)))=∇θDKL(πθ(.|st)∥exp(Qw(st,.)−logZw(st)))=Eat∼π[−log(exp(Qw(st,at)−logZw(st))πθ(at|st))]=Eat∼π[logπθ(at|st)−Qw(st,at)+logZw(st)]
 where Π is the set of potential policies that we can model our policy as to keep them tractable; for example, Π can be the family of Gaussian mixture distributions, expensive to model but highly expressive and still tractable. Zπold(st) is the partition function to normalize the distribution. It is usually intractable but does not contribute to the gradient. How to minimize Jπ(θ) depends our choice of Π.
