@@ -99,6 +99,8 @@ The test was implemented on Mujoco case "HalfCheetah-v2". The loss of critics (1
 
 ![critic1_loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/critic1_loss.png)
 ![critic2_loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/critic2_loss.png)
+
 ![policy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/policy_loss.png)
 ![train_average_reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/train_average_rewards.png)
+
 ![test_average_reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/test_average_rewards.png)
