@@ -93,4 +93,12 @@ where $\Pi$ is the set of potential policies that we can model our policy as to 
 
 This update guarantees that $Q^{\pi_{new}}(s_{t},a_{t}) \ge Q^{\pi_{old}}(s_{t},a_{t})$. Once we have defined the objective functions and gradients for soft action-state value, soft state value and the policy network, the soft actor-critic algorithm is straightforward.
 
+## SAC Results
 
+The test was implemented on Mujoco case "HalfCheetah-v2". The loss of critics (1 and 2), policy loss, train and test average rewards are displayed. 
+
+![critic1_loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/critic1_loss.png)
+![critic2_loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/critic2_loss.png)
+![policy loss](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/policy_loss.png)
+![train_average_reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/train_average_rewards.png)
+![test_average_reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/SAC_result/test_average_rewards.png)
