@@ -33,15 +33,16 @@ Three key components in SAC:
 
 The policy is trained with the objective to maximize the expected return and the entropy at the same time:
 
-$$J(\theta) =  \sum_{t=1}^{T} \mathbb{E_{s_{t}, a_{t} \sim \rho_{\pi_{\theta}}}} \begin{bmatrix}r(s_{t}, a_{t} + \alpha H(\pi_{\theta}(\cdot \mid s_{t}))) \end{bmatrix}\tag{1}$$
+$$J(\theta) =  \sum_{t=1}^{T} \mathbb{E_{s_{t}, a_{t} \sim \rho_{\pi_{\theta}}}} \begin{bmatrix}r(s_{t}, a_{t}) + \alpha H(\pi_{\theta}(\cdot \mid s_{t})) \end{bmatrix}\tag{1}$$
  
-where H(.) is the entropy measure and α controls how important the entropy term is, known as temperature parameter. The entropy maximization leads to policies that can (1) explore more and (2) capture multiple modes of near-optimal strategies (i.e., if there exist multiple options that seem to be equally good, the policy should assign each with an equal probability to be chosen).
+where H(.) is the entropy measure and α controls how important the entropy term is, known as temperature parameter. The entropy maximization leads to policies that can (1) the policy is incentivized to explore more widely, while giving up on clearly unpromising avenues. (2) the policy can capture multiple modes of nearoptimal behavior. In problem settings where multiple actions seem equally attractive, the policy will commit equal probability mass to those actions.
 
 Precisely, SAC aims to learn three functions:
 
-The policy with parameter θ, πθ.
-Soft Q-value function parameterized by w, Qw.
-Soft state value function parameterized by ψ, Vψ; theoretically we can infer V by knowing Q and π, but in practice, it helps stabilize the training.
+- The policy with parameter $\theta$, $\pi_{\theta}$.
+- Soft Q-value function parameterized by $w%, $Q_{w}$.
+- Soft state value function parameterized by $\Phi$, $V_{\Phi}$; theoretically we can infer $V$ by knowing $Q$ and $\pi$, but in practice, it helps stabilize the training.
+
 Soft Q-value and soft state value are defined as:
 
 Q(st,at)where V(st)=r(st,at)+γEst+1∼ρπ(s)[V(st+1)]=Eat∼π[Q(st,at)−αlogπ(at|st)]; according to Bellman equation.; soft state value function.
