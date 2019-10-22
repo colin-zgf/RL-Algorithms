@@ -59,10 +59,15 @@ The soft state value function is trained to minimize the mean squared error:
 
 $$J_{V}(\psi) = \mathbb{E_{s_{t} \sim D}}\begin{bmatrix} \frac{1}{2}(V_{\psi}(s_{t})-\mathbb{E} \begin{bmatrix}Q_{w}(s_{t},a_{t}) - \alpha log \pi_{\theta} (a_{t} \mid s_{t}) \end{bmatrix})^2 \end{bmatrix}\tag{5}$$
 
-JV(ψ)with gradient: ∇ψJV(ψ)=Est∼D[12(Vψ(st)−E[Qw(st,at)−logπθ(at|st)])2]=∇ψVψ(st)(Vψ(st)−Qw(st,at)+logπθ(at|st))
+with gradient:
+
+$$\bigtriangledown_{\psi} J_{V}(\psi)= \bigtriangledown_{\psi} V_{\psi}(s_{t}) (V_{\psi}(s_{t})-Q_{w}(s_{t}, a_{t}) + log \pi_{\theta}(a_{t} \mid s_{t}))\tag{6}$$
+
 where D is the replay buffer.
 
 The soft Q function is trained to minimize the soft Bellman residual:
+
+$$J_{Q}(w) = \mathbb{E_{s_{t}, a_{t} \sim D}}\begin{bmatrix} \frac{1}{2}(Q_{w}(s_{t}, a_{t})-(r(s_{t}, a_{t}) + \gamma \mathbb{E_{s_{t+1} \sim \rho_{\pi}(s)}})\begin{bmatrix}V_{\hat \psi}(s_{t+1}) \end{bmatrix})^2\tag{7}$$
 
 JQ(w)with gradient: ∇wJQ(w)=E(st,at)∼D[12(Qw(st,at)−(r(st,at)+γEst+1∼ρπ(s)[Vψ¯(st+1)]))2]=∇wQw(st,at)(Qw(st,at)−r(st,at)−γVψ¯(st+1))
 where ψ¯ is the target value function which is the exponential moving average (or only gets updated periodically in a “hard” way), just like how the parameter of the target Q network is treated in DQN to stabilize the training.
