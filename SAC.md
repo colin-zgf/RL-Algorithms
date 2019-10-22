@@ -89,9 +89,8 @@ $$J_{\pi}(\theta) = \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}-log \frac{(\exp(
 
 $$J_{\pi}(\theta) = \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}log \pi_{\theta}(a_{t} \mid s_{t}) - Q_{w}(s_{t}, a_{t}) + log Z_{w}(s_{t})  \end{bmatrix}\tag{13}$$
 
-Jπ(θ)=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.))Zπold(st))=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.)−logZπold(st)))=∇θDKL(πθ(.|st)∥exp(Qw(st,.)−logZw(st)))=Eat∼π[−log(exp(Qw(st,at)−logZw(st))πθ(at|st))]=Eat∼π[logπθ(at|st)−Qw(st,at)+logZw(st)]
-where Π is the set of potential policies that we can model our policy as to keep them tractable; for example, Π can be the family of Gaussian mixture distributions, expensive to model but highly expressive and still tractable. Zπold(st) is the partition function to normalize the distribution. It is usually intractable but does not contribute to the gradient. How to minimize Jπ(θ) depends our choice of Π.
+where $\Pi$ is the set of potential policies that we can model our policy as to keep them tractable; for example, $\Pi$ can be the family of Gaussian mixture distributions, expensive to model but highly expressive and still tractable. $Z^{\pi_{old}}(s_{t})$ is the partition function to normalize the distribution. It is usually intractable but does not contribute to the gradient. How to minimize $J_\pi(\theta)$ depends our choice of $\Pi$.
 
-This update guarantees that Qπnew(st,at)≥Qπold(st,at), please check the proof on this lemma in the Appendix B.2 in the original paper.
+This update guarantees that $Q^{\pi_{new}}(s_{t},a_{t}) \ge Q^{\pi_{old}}(s_{t},a_{t})$. Once we have defined the objective functions and gradients for soft action-state value, soft state value and the policy network, the soft actor-critic algorithm is straightforward.
 
-Once we have defined the objective functions and gradients for soft action-state value, soft state value and the policy network, the soft actor-critic algorithm is straightforward:
+
