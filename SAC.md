@@ -41,7 +41,7 @@ Precisely, SAC aims to learn three functions:
 
 - The policy with parameter $\theta$, $\pi_{\theta}$.
 - Soft Q-value function parameterized by $w$, $Q_{w}$.
-- Soft state value function parameterized by $\Psi$, $V_{\Psi}$; theoretically we can infer $V$ by knowing $Q$ and $\pi$, but in practice, it helps stabilize the training.
+- Soft state value function parameterized by $\psi$, $V_{\psi}$; theoretically we can infer $V$ by knowing $Q$ and $\pi$, but in practice, it helps stabilize the training.
 
 Soft Q-value and soft state value according to Bellman equation are defined as:
 
@@ -56,6 +56,8 @@ $$Q(s_{t},a_{t})=r(s_{t},a_{t})+ \mathbb{E_{s_{t+1}, a_{t+1} \sim \rho_{\pi}}} \
 where $\rho_{\pi}(s)$ and $\rho_{\pi}(s,a)$ denote the state and the state-action marginals of the state distribution induced by the policy $\pi(a \mid s)$; see the similar definitions in DPG section.
 
 The soft state value function is trained to minimize the mean squared error:
+
+$$J_{V}(\psi) = \mathbb{E_{s_{t} \sim D}}\begin{bmatrix} \frac{1}{2}(V_{\psi}(s_{t})-\mathbb{E} \begin{bmatrix}Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix})^2 \end{bmatrix}\tag{5}$$
 
 JV(ψ)with gradient: ∇ψJV(ψ)=Est∼D[12(Vψ(st)−E[Qw(st,at)−logπθ(at|st)])2]=∇ψVψ(st)(Vψ(st)−Qw(st,at)+logπθ(at|st))
 where D is the replay buffer.
