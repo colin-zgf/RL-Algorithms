@@ -47,12 +47,13 @@ Soft Q-value and soft state value according to Bellman equation are defined as:
 
 $$Q(s_{t},a_{t}) = r(s_{t},a_{t}) + \gamma \mathbb{E_{s_{t+1} \sim \rho_{\pi}(s)}} \begin{bmatrix}V(s_{t+1}) \end{bmatrix}\tag{2}$$
 
-$$V(s_{t}) = r(s_{t},a_{t}) + \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}V(s_{t+1})Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix}\tag{3}$$
+$$V(s_{t}) = r(s_{t},a_{t}) + \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix}\tag{3}$$
 
+Thus, 
 
-Q(st,at)where V(st)=r(st,at)+γEst+1∼ρπ(s)[V(st+1)]=Eat∼π[Q(st,at)−αlogπ(at|st)]; according to Bellman equation.; soft state value function.
-Thus, Q(st,at)=r(st,at)+γE(st+1,at+1)∼ρπ[Q(st+1,at+1)−αlogπ(at+1|st+1)]
-ρπ(s) and ρπ(s,a) denote the state and the state-action marginals of the state distribution induced by the policy π(a|s); see the similar definitions in DPG section.
+$$Q(s_{t},a_{t})=r(s_{t},a_{t})+ \mathbb{E_{s_{t+1}, a_{t+1} \sim \rho_{\pi}}} \begin{bmatrix}Q(s_{t+1},a_{t+1}) - \alpha log \pi (a_{t+1} \mid s_{t+1}) \end{bmatrix}\tag{4}$$
+
+where $\rho_{\pi}(s)$ and $\rho_{\pi}(s,a)$ denote the state and the state-action marginals of the state distribution induced by the policy $\pi(a \mid s)$; see the similar definitions in DPG section.
 
 The soft state value function is trained to minimize the mean squared error:
 
