@@ -77,11 +77,9 @@ where $\overline{\psi}$ is the target value function which is the exponential mo
 
 SAC updates the policy to minimize the KL-divergence:
 
-$$D_{KL}(\pi^{'} (\cdot \mid s_{t})) $$
+$$\pi_{new} = arg \min \limits_{\pi^{'}\in \Pi} D_{KL}(\pi^{'} (\cdot \mid s_{t}) \mid \mid \frac{exp(Q^{\pi_{old}}(s_{t}, \cdot))}{Z^{\pi_{old}}(s_{t})})\tag{9}$$
 
-$$\pi_{new} = arg \min \limits_{\pi^{'}\in \Pi} D_{KL}(\pi^{'} (\cdot \mid s_{t}) \mid \mid \frac{exp(Q^{\pi_{old}}(s_{t}, \cdot))}{Z^{\pi_{old}}(s_{t})}))\tag{9}$$
-
-$$\pi_{new} = arg \min \limits_{\pi^{'}\in \Pi} D_{KL}(\pi^{'} (\cdot \mid s_{t}) \mid \mid \exp(Q^{\pi_{old}}(s_{t}, \cdot))-log Z^{\pi_{old}}(s_{t})))\tag{10}$$
+$$\pi_{new} = arg \min \limits_{\pi^{'}\in \Pi} D_{KL}(\pi^{'} (\cdot \mid s_{t}) \mid \mid \exp(Q^{\pi_{old}}(s_{t}, \cdot)-log Z^{\pi_{old}}(s_{t})))\tag{10}$$
 
 πnewobjective for update: Jπ(θ)=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.))Zπold(st))=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.)−logZπold(st)))=∇θDKL(πθ(.|st)∥exp(Qw(st,.)−logZw(st)))=Eat∼π[−log(exp(Qw(st,at)−logZw(st))πθ(at|st))]=Eat∼π[logπθ(at|st)−Qw(st,at)+logZw(st)]
 where Π is the set of potential policies that we can model our policy as to keep them tractable; for example, Π can be the family of Gaussian mixture distributions, expensive to model but highly expressive and still tractable. Zπold(st) is the partition function to normalize the distribution. It is usually intractable but does not contribute to the gradient. How to minimize Jπ(θ) depends our choice of Π.
