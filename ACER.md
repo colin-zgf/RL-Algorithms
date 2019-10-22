@@ -37,9 +37,10 @@ $$\delta_{t}=R_{t}+\gamma \mathbb{E_{a \sim \pi}}Q(s_{t+1},a_{t+1})−Q(s_{t},a_
 
 2. Update the value by correcting the error to move toward the goal: $Q(s_{t},a_{t}) \leftarrow Q(s_{t},a_{t})+\alpha \delta_{t}$. In other words, the incremental update on $Q$ is proportional to the TD error: $\Delta Q(s_{t},a_{t})=\alpha \delta_{t}$.
 
-When the rollout is off policy, we need to apply importance sampling on the Q update:
+Controlling the variance and stability of off-policy estimators is notoriously hard. Importance sampling is one of the most popular approaches for offpolicy learning. When the rollout is off policy, we need to apply importance sampling on the Q update:
 
-$$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t}  \limits_{1 \le \tau \le t} \frac{\pi(a_{\tau}\mid s_{\tau})}{\beta(a_{\tau} \mid s_{\tau})} \delta_{t}\tag{4}$$
+$$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t}  \frac{\pi(a_{1}\mid s_{1}) \pi(a_{2}\mid s_{2}) \cdots \pi(a_{t}\mid s_{t})}{\beta(a_{1}\mid s_{1}) \beta(a_{2}\mid s_{2}) \cdots \beta(a_{t}\mid s_{t})} \delta_{t}\tag{4}$$
 
+The product of importance weights looks pretty scary when we start imagining how it can cause super high variance and even explode. Retrace $Q$-value estimation method modifies $\Delta Q$ to have importance weights truncated by no more than a constant $c$:
 
-Controlling the variance and stability of off-policy estimators is notoriously hard. Importance sampling is one of the most popular approaches for offpolicy learning
+$$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t} min(c, \frac{\pi(a_{1}\mid s_{1}) \pi(a_{2}\mid s_{2}) \cdots \pi(a_{t}\mid s_{t})}{\beta(a_{1}\mid s_{1}) \beta(a_{2}\mid s_{2}) \cdots \beta(a_{t}\mid s_{t})} )\delta_{t}\tag{5}$$
