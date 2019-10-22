@@ -34,6 +34,7 @@ The following algorithms are included:
 - [A2C](https://github.com/colin-zgf/RL-Algorithms/blob/master/A2C.md)
 - [TRPO](https://github.com/colin-zgf/RL-Algorithms/blob/master/TRPO.md)
 - [PPO](https://github.com/colin-zgf/RL-Algorithms/blob/master/PPO.md)
+- [SAC](https://github.com/colin-zgf/RL-Algorithms/blob/master/SAC.md)
 
 ## Reference
 
@@ -41,3 +42,4 @@ The following algorithms are included:
 - [Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International conference on machine learning, pp. 1928-1937. 2016.](https://arxiv.org/pdf/1602.01783.pdf)
 - [Schulman, John, Sergey Levine, Pieter Abbeel, Michael Jordan, and Philipp Moritz. "Trust region policy optimization." In International conference on machine learning, pp. 1889-1897. 2015.](https://arxiv.org/pdf/1502.05477.pdf)
 - [Schulman, John, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. "Proximal policy optimization algorithms." arXiv preprint arXiv:1707.06347 (2017).](https://arxiv.org/pdf/1707.06347.pdf)
+- [Haarnoja, Tuomas, Aurick Zhou, Pieter Abbeel, and Sergey Levine. "Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor." arXiv preprint arXiv:1801.01290 (2018).](https://arxiv.org/pdf/1801.01290.pdf)
