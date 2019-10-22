@@ -32,3 +32,37 @@ Three key components in SAC:
 ## Mathematics in SAC
 
 The policy is trained with the objective to maximize the expected return and the entropy at the same time:
+
+$$J(\theta) =  \sum_{t=1}^{T} \mathbb{E_{s_{t}, a_{t} \sim \rho_{\pi_{\theta}}}} \begin{bmatrix}r(s_{t}, a_{t} + \alpha H(\pi_{\theta}(\cdot \mid s_{t}))) \end{bmatrix}\tag{1}$$
+ 
+where H(.) is the entropy measure and α controls how important the entropy term is, known as temperature parameter. The entropy maximization leads to policies that can (1) explore more and (2) capture multiple modes of near-optimal strategies (i.e., if there exist multiple options that seem to be equally good, the policy should assign each with an equal probability to be chosen).
+
+Precisely, SAC aims to learn three functions:
+
+The policy with parameter θ, πθ.
+Soft Q-value function parameterized by w, Qw.
+Soft state value function parameterized by ψ, Vψ; theoretically we can infer V by knowing Q and π, but in practice, it helps stabilize the training.
+Soft Q-value and soft state value are defined as:
+
+Q(st,at)where V(st)=r(st,at)+γEst+1∼ρπ(s)[V(st+1)]=Eat∼π[Q(st,at)−αlogπ(at|st)]; according to Bellman equation.; soft state value function.
+Thus, Q(st,at)=r(st,at)+γE(st+1,at+1)∼ρπ[Q(st+1,at+1)−αlogπ(at+1|st+1)]
+ρπ(s) and ρπ(s,a) denote the state and the state-action marginals of the state distribution induced by the policy π(a|s); see the similar definitions in DPG section.
+
+The soft state value function is trained to minimize the mean squared error:
+
+JV(ψ)with gradient: ∇ψJV(ψ)=Est∼D[12(Vψ(st)−E[Qw(st,at)−logπθ(at|st)])2]=∇ψVψ(st)(Vψ(st)−Qw(st,at)+logπθ(at|st))
+where D is the replay buffer.
+
+The soft Q function is trained to minimize the soft Bellman residual:
+
+JQ(w)with gradient: ∇wJQ(w)=E(st,at)∼D[12(Qw(st,at)−(r(st,at)+γEst+1∼ρπ(s)[Vψ¯(st+1)]))2]=∇wQw(st,at)(Qw(st,at)−r(st,at)−γVψ¯(st+1))
+where ψ¯ is the target value function which is the exponential moving average (or only gets updated periodically in a “hard” way), just like how the parameter of the target Q network is treated in DQN to stabilize the training.
+
+SAC updates the policy to minimize the KL-divergence:
+
+πnewobjective for update: Jπ(θ)=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.))Zπold(st))=argminπ′∈ΠDKL(π′(.|st)∥exp(Qπold(st,.)−logZπold(st)))=∇θDKL(πθ(.|st)∥exp(Qw(st,.)−logZw(st)))=Eat∼π[−log(exp(Qw(st,at)−logZw(st))πθ(at|st))]=Eat∼π[logπθ(at|st)−Qw(st,at)+logZw(st)]
+where Π is the set of potential policies that we can model our policy as to keep them tractable; for example, Π can be the family of Gaussian mixture distributions, expensive to model but highly expressive and still tractable. Zπold(st) is the partition function to normalize the distribution. It is usually intractable but does not contribute to the gradient. How to minimize Jπ(θ) depends our choice of Π.
+
+This update guarantees that Qπnew(st,at)≥Qπold(st,at), please check the proof on this lemma in the Appendix B.2 in the original paper.
+
+Once we have defined the objective functions and gradients for soft action-state value, soft state value and the policy network, the soft actor-critic algorithm is straightforward:
