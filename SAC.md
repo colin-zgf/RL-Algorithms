@@ -57,7 +57,7 @@ where $\rho_{\pi}(s)$ and $\rho_{\pi}(s,a)$ denote the state and the state-actio
 
 The soft state value function is trained to minimize the mean squared error:
 
-$$J_{V}(\psi) = \mathbb{E_{s_{t} \sim D}}\begin{bmatrix} \frac{1}{2}(V_{\psi}(s_{t})-\mathbb{E} \begin{bmatrix}Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix})^2 \end{bmatrix}\tag{5}$$
+$$J_{V}(\psi) = \mathbb{E_{s_{t} \sim D}}\begin{bmatrix} \frac{1}{2}(V_{\psi}(s_{t})-\mathbb{E} \begin{bmatrix}Q_{w}(s_{t},a_{t}) - \alpha log \pi_{\theta} (a_{t} \mid s_{t}) \end{bmatrix})^2 \end{bmatrix}\tag{5}$$
 
 JV(ψ)with gradient: ∇ψJV(ψ)=Est∼D[12(Vψ(st)−E[Qw(st,at)−logπθ(at|st)])2]=∇ψVψ(st)(Vψ(st)−Qw(st,at)+logπθ(at|st))
 where D is the replay buffer.
