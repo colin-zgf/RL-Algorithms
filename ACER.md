@@ -39,7 +39,7 @@ $$\delta_{t}=R_{t}+\gamma \mathbb{E_{a \sim \pi}}Q(s_{t+1},a_{t+1})−Q(s_{t},a_
 
 When the rollout is off policy, we need to apply importance sampling on the Q update:
 
-$$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t} \Pi \limits_{1 \le \tau \le t} \frac{\pi(a_{\tau}\mid s_{\tau})}{\beta(a_{\tau} \mid s_{\tau})} \delta_{t}\tag{4}$$
+$$\Delta Q^{imp} (s_{t}, a_{t}) = \gamma^{t}  \limits_{1 \le \tau \le t} \frac{\pi(a_{\tau}\mid s_{\tau})}{\beta(a_{\tau} \mid s_{\tau})} \delta_{t}\tag{4}$$
 
 
 Controlling the variance and stability of off-policy estimators is notoriously hard. Importance sampling is one of the most popular approaches for offpolicy learning
