@@ -41,6 +41,18 @@ The following **reinforcement learning** algorithms are included:
 - [D4PG](https://github.com/colin-zgf/RL-Algorithms/blob/master/D4PG.md)
 - [SAC](https://github.com/colin-zgf/RL-Algorithms/blob/master/SAC.md)
 
+## Code
+
+- [Vanilla Policy Gradient](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/PG_NPG_TRPO_PPO)
+- [Natural Policy Gradient (NPG)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/PG_NPG_TRPO_PPO)
+- [Actor-Critic (A2C)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/A2C)
+- [Trust Region Policy Optimization (TRPO)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/PG_NPG_TRPO_PPO)
+- [Proximal Policy Optimization (PPO)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/PG_NPG_TRPO_PPO)
+- [Actor Critic with Experience Replay (ACER)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/ACER)
+- [Deep Deterministic Policy Gradient (DDPG)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/DDPG)
+- [Distributed Distributional Deep Deterministic Policy Gradient (D4PG)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/D4PG)
+- [Soft Actor Critic (SAC)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/SAC)
+
 ## Reference
 
 - [Kakade, Sham M. "A natural policy gradient." In Advances in neural information processing systems, pp. 1531-1538. 2002.](https://papers.nips.cc/paper/2073-a-natural-policy-gradient.pdf)
