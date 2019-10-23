@@ -40,3 +40,13 @@ DDPG uses four neural networks:
 - Deterministic policy network: $\theta^{\mu}$
 - Target Q network: $\theta^{Q^{'}}$
 - Target policy network: $\theta^{\mu^{'}}$
+
+The Q network and policy network is very much like simple advantage actor-critic, but in DDPG, the actor directly maps states to actions instead of outputting the probability distribution across a discrete action space.
+
+The target networks are time-delayed copies of their original networks that slowly track the learned networks. Using these target value networks greatly improve stability in learning.
+
+**Why do we use experience replay?** In optimization tasks, we want the data to be independently distributed. This fails to be the case when we optimize a sequential decision process in an on-policy way, because the data then would not be independent of each other. When we store them in a replay buffer and take random batches for training, we overcome this issue.
+
+- Actor and Critic Network Updates:
+
+$$y_{i}=r_{i}+\gamma Q^{'}(s_{i+1}, \mu^{'}(s_{i+1} \mid \theta^{\mu^{'}}) \mid \theta^{Q^{'}})$$
