@@ -21,3 +21,9 @@ Now let's look at the critic. The role of the critic is to estimate the Q-value,
 So, what do we have? We have two functions, one is the actor, let's call it $\mu (s)$, which converts the state into the action and the other is the critic, by the state and the action giving us the $Q$-value: $Q(s, a)$. We can substitute the actor function into the critic and get the expression with only one input parameter of our state: $Q(s, \mu (s))$. In the end, Neural Networks (NNs) are just functions.
 
 Now the output of the critic gives us the approximation of the entity we're interested in maximizing in the first place: the discounted total reward. This value depends not only on the input state, but also on parameters of the $\theta_{\mu}$ actor and the $\theta_{Q}$ critic networks. At every step of our optimization, we want to change the actor's weights to improve the total reward that we want to get. In mathematical terms, we want the gradient of our policy. In his deterministic policy gradient theorem, David Silver has proved that stochastic policy gradient is equivalent to the deterministic policy gradient. 
+
+## DDPG Architecture
+
+The figure below shows one example of the DDPG actor and critic networks.
+
+![DDPG](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DDPG_result/DDPG_Architecture.png)
