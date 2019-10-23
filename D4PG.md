@@ -55,3 +55,13 @@ $$\bigtriangledown_{\theta} J(\theta) \approx \mathbb{E_{\rho}}\begin{bmatrix}\b
 When calculating the TD error, D4PG computes N-step TD target rather than one-step to incorporate rewards in more future steps. Thus the new TD target is:
 
 $$(T_{\pi}^{N} Q)(x_{0}, a_{0}) = r(x_{0}, a_{0}) + \mathbb{E}\begin{bmatrix}\sum_{n=1}^{N-1} \gamma^n r(x_{n}, a_{n}) + \gamma^N Q(x_{N}, \pi(x_{N})) \mid  x_{0}, a_{0}\end{bmatrix}\tag{7}$$
+
+## D4PG Experiment
+
+The D4PG algorithm was implemented on the 'Pendulum-v0' cases. Four agents were chosen and their corresponding rewards are displayed below:
+
+![Agent0](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/D4PG_result/agent0.png)
+![Agent1](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/D4PG_result/agent1.png)
+
+![Agent2](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/D4PG_result/agent2.png)
+![Agent3](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/D4PG_result/agent3.png)
