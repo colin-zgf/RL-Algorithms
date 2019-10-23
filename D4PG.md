@@ -45,3 +45,9 @@ $$(T_{\pi} Z) (x, a) = r(x, a) + \gamma \mathbb{E} \begin{bmatrix}Z(x^{'}, \pi (
 Correspondingly, the loss now becomes:
 
 $$L(w) = \mathbb{E_{\rho}}\begin{bmatrix}d(T_{\pi_{\theta^{'}}} Z_{w^{'}} (x, a), Z_{w} (x, a) \end{bmatrix}\tag{4}$$
+
+The deterministic policy gradient update becomes:
+
+$$\bigtriangledown_{\theta} J(\theta) \approx \mathbb{E_{\rho}}\begin{bmatrix}\bigtriangledown_{\theta} \pi_{\theta} (x)  \bigtriangledown_{a} Q_{w} (x, a) \mid_{a=\pi_{\theta} (x)}\end{bmatrix}\tag{5}$$
+
+$$\bigtriangledown_{\theta} J(\theta) \approx \mathbb{E_{\rho}}\begin{bmatrix}\bigtriangledown_{\theta} \pi_{\theta} (x)  \mathbb{E} \begin{bmatrix}\bigtriangledown_{a} Z_{w} (x, a)\end{bmatrix} \mid_{a=\pi_{\theta} (x)}\end{bmatrix}\tag{6}$$
