@@ -36,6 +36,7 @@ The following **reinforcement learning** algorithms are included:
 - [PPO](https://github.com/colin-zgf/RL-Algorithms/blob/master/PPO.md)
 - [ACER](https://github.com/colin-zgf/RL-Algorithms/blob/master/ACER.md)
 - [DDPG](https://github.com/colin-zgf/RL-Algorithms/blob/master/DDPG.md)
+- [D4PG](https://github.com/colin-zgf/RL-Algorithms/blob/master/D4PG.md)
 - [SAC](https://github.com/colin-zgf/RL-Algorithms/blob/master/SAC.md)
 
 ## Reference
@@ -46,6 +47,7 @@ The following **reinforcement learning** algorithms are included:
 - [Schulman, John, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. "Proximal policy optimization algorithms." arXiv preprint arXiv:1707.06347 (2017).](https://arxiv.org/pdf/1707.06347.pdf)
 - [Wang, Ziyu, Victor Bapst, Nicolas Heess, Volodymyr Mnih, Remi Munos, Koray Kavukcuoglu, and Nando de Freitas. "Sample efficient actor-critic with experience replay." arXiv preprint arXiv:1611.01224 (2016).](https://arxiv.org/pdf/1611.01224.pdf)
 - [Lillicrap, Timothy Paul, Jonathan James Hunt, Alexander Pritzel, Nicolas Manfred Otto Heess, Tom Erez, Yuval Tassa, David Silver, and Daniel Pieter Wierstra. "Continuous control with deep reinforcement learning." U.S. Patent Application 15/217,758, filed January 26, 2017.](https://arxiv.org/pdf/1509.02971.pdf)
+- [Barth-Maron, Gabriel, Matthew W. Hoffman, David Budden, Will Dabney, Dan Horgan, Alistair Muldal, Nicolas Heess, and Timothy Lillicrap. "Distributed distributional deterministic policy gradients." arXiv preprint arXiv:1804.08617 (2018).](https://openreview.net/pdf?id=SyZipzbCb)
 - [Haarnoja, Tuomas, Aurick Zhou, Pieter Abbeel, and Sergey Levine. "Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor." arXiv preprint arXiv:1801.01290 (2018).](https://arxiv.org/pdf/1801.01290.pdf)
 - [Wu, Yuhuai, Elman Mansimov, Roger B. Grosse, Shun Liao, and Jimmy Ba. "Scalable trust-region method for deep reinforcement learning using kronecker-factored approximation." In Advances in neural information processing systems, pp. 5279-5288. 2017.](https://arxiv.org/pdf/1708.05144.pdf)
 - [Lapan, Maxim. Deep Reinforcement Learning Hands-On: Apply modern RL methods, with deep Q-networks, value iteration, policy gradients, TRPO, AlphaGo Zero and more. Packt Publishing Ltd, 2018.](https://books.google.com/books?hl=en&lr=&id=xKdhDwAAQBAJ&oi=fnd&pg=PP1&dq=Deep+Reinforcement+Learning+Hands-On&ots=wTeckp2m8B&sig=cd8CvMkvJMfSb3MMWeHo3VkdYh8#v=onepage&q=Deep%20Reinforcement%20Learning%20Hands-On&f=false)
