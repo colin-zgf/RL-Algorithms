@@ -63,6 +63,10 @@ Then the graident is
 
 $$\bigtriangledown_{\theta^{\mu}} J(\theta) \approx \bigtriangledown_{a} Q(s,a) \bigtriangledown_{\theta^{\mu}} \mu (s \mid \theta^{\mu})\tag{5}$$
 
+DDPG algorithm is shown below:
+
+![DDPG-Algorithm](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DDPG_result/ddpg_algorithm.png)
+
 ## DDPG Experiments
 
 Two experiments were implemented based on DDPG. Both of them are to fectch the object in real-time.
