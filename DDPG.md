@@ -49,4 +49,23 @@ The target networks are time-delayed copies of their original networks that slow
 
 - Actor and Critic Network Updates:
 
-$$y_{i}=r_{i}+\gamma Q^{'}(s_{i+1}, \mu^{'}(s_{i+1} \mid \theta^{\mu^{'}}) \mid \theta^{Q^{'}})$$
+$$y_{i}=r_{i}+\gamma Q^{'}(s_{i+1}, \mu^{'}(s_{i+1} \mid \theta^{\mu^{'}}) \mid \theta^{Q^{'}})\tag{2}$$
+
+In DDPG, the next-state Q values are calculated with the target value network and target policy network. Then we minimize the mean-squared loss between the updated Q value and the orginal Q value:
+
+$$Loss = \frac{1}{N} \sum_{i} (y_{i} - Q(s_{i}, a_{i} \mid \theta^Q))^2\tag{3}$$
+
+For the policy function, the objective is to maximize the expected return:
+
+$$J(\theta) = \mathbb{E} \begin{bmatrix}Q(s,a) \mid_{s=s_{t}, a_{t}=\mu (s)} \end{bmatrix}\tag{4}$$
+
+Then the graident is
+
+$$\bigtriangledown_{\theta^{\mu}} J(\theta) \approx \bigtriangledown_{a} Q(s,a) \bigtriangledown_{\theta^{\mu}} \mu (s \mid \theta^{\mu})\tag{5}$$
+
+## DDPG Experiments
+
+Two experiments were implemented based on DDPG. Both of them are to fectch the object in real-time.
+
+![DDPG1](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DDPG_result/ddpg_robots1.gif)
+![DDPG2](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DDPG_result/DDPG_arm.gif)
