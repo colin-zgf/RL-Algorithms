@@ -35,3 +35,13 @@ $$(T_{\pi} Q_{w}) (x, a) = r(x, a) + \gamma \mathbb{E} \begin{bmatrix}Q_{w}(x^{'
 We can minimize the temporal difference (TD) error, i.e. the difference between the value function before and after applying the Bellman update.
 
 $$L(w) = \mathbb{E_{\rho}}\begin{bmatrix}(Q_{w}(x, a) - (T_{\pi_{\theta^{'}}} Q_{w^{'}}) (x, a))^2 \end{bmatrix}\tag{2}$$
+
+In practice we will periodically replace the target networks with copies of the current network weights.
+
+In D4PG, the distributional Bellman operator can be defined by modifying Eqn.(1) as:
+
+$$(T_{\pi} Z) (x, a) = r(x, a) + \gamma \mathbb{E} \begin{bmatrix}Z(x^{'}, \pi (x^{'})) \mid x, a\end{bmatrix}\tag{3}$$
+
+Correspondingly, the loss now becomes:
+
+$$L(w) = \mathbb{E_{\rho}}\begin{bmatrix}d(T_{\pi_{\theta^{'}}} Z_{w^{'}} (x, a), Z_{w} (x, a) \end{bmatrix}\tag{4}$$
