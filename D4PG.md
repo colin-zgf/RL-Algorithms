@@ -51,3 +51,7 @@ The deterministic policy gradient update becomes:
 $$\bigtriangledown_{\theta} J(\theta) \approx \mathbb{E_{\rho}}\begin{bmatrix}\bigtriangledown_{\theta} \pi_{\theta} (x)  \bigtriangledown_{a} Q_{w} (x, a) \mid_{a=\pi_{\theta} (x)}\end{bmatrix}\tag{5}$$
 
 $$\bigtriangledown_{\theta} J(\theta) \approx \mathbb{E_{\rho}}\begin{bmatrix}\bigtriangledown_{\theta} \pi_{\theta} (x)  \mathbb{E} \begin{bmatrix}\bigtriangledown_{a} Z_{w} (x, a)\end{bmatrix} \mid_{a=\pi_{\theta} (x)}\end{bmatrix}\tag{6}$$
+
+When calculating the TD error, D4PG computes N-step TD target rather than one-step to incorporate rewards in more future steps. Thus the new TD target is:
+
+$$(T_{pi}^{N} Q)(x_{0}, a_{0}) = r(x_{0}, a_{0}) + \mathbb{E}\begin{bmatrix}\sum_{n=1}^{N-1} \gamma^n r(x_{n}, a_{n}) + \gamma^N Q(x_{N}, \pi_{x_{N}}) \mid  x_{0}, a_{0}\end{bmatrix}\tag{7}$$
