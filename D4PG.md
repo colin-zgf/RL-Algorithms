@@ -28,6 +28,10 @@ The result was impressive: this combination showed the state-of-the art results 
 
 ## Mathematics in D4PG
 
-By making use of the deterministic policy gradient theorem, one can write the gradient of this objective as:
+By making use of the deterministic policy gradient theorem and by introducing the Bellman operator, one can write the gradient of this objective as:
 
-$$(T_{\pi} Q) (x, a) = r(x, a) + \gamma \mathbb{E} \begin{bmatrix}Q(x^{'}, \pi (x^{'})) \mid x, a\end{bmatrix}\tag{1}$$
+$$(T_{\pi} Q_{w}) (x, a) = r(x, a) + \gamma \mathbb{E} \begin{bmatrix}Q_{w}(x^{'}, \pi (x^{'})) \mid x, a\end{bmatrix}\tag{1}$$
+
+We can minimize the temporal difference (TD) error, i.e. the difference between the value function before and after applying the Bellman update.
+
+$$L(w) = \mathbb{E_{\rho}}\begin{bmatrix}(Q_{w}(x, a) - (T_{\pi_{\theta^{'}}} Q_{w^{'}}) (x, a))^2 \end{bmatrix}\tag{2}$$
