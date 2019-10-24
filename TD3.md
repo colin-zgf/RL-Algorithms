@@ -39,3 +39,15 @@ However, due to the slow changing policy, these two networks could be too simila
 $$y_{1} = r + \gamma \min \limits_{i=1,2} Q_{\theta_{i}^{'}} (s^{'}, \pi_{\phi_{1}} (s^{'}))\tag{7}$$
 
 $$y_{2} = r + \gamma \min \limits_{i=1,2} Q_{\theta_{i}^{'}} (s^{'}, \pi_{\phi_{2}} (s^{'}))\tag{7}$$
+
+With Clipped Double Q-learning, the value target cannot introduce any additional overestimation over using the standard Q-learning target. While this update rule may induce an underestimation bias, this is far preferable to overestimation bias, as unlike overestimated actions, the value of underestimated actions will not be explicitly propagated through the policy update.
+
+(2) Delayed update of Target and Policy Networks: In the actor-critic model, policy and value updates are deeply coupled: Value estimates diverge through overestimation when the policy is poor, and the policy will become poor if the value estimate itself is inaccurate.
+
+To reduce the variance, TD3 updates the policy at a lower frequency than the Q-function. The policy network stays the same until the value error is small enough after several updates. The idea is similar to how the periodically-updated target network stay as a stable objective in DQN.
+
+(3) Target Policy Smoothing: Given a concern with deterministic policies that they can overfit to narrow peaks in the value function, TD3 introduced a smoothing regularization strategy on the value function: adding a small amount of clipped random noises to the selected action and averaging over mini-batches.
+
+$$y = r + \gamma Q_{\theta^{'}} (s^{'}, \pi_{\phi^{'}} (s^{'}) + \epsilon)\tag{8}$$
+
+$$\epsilon \widetilde clip (Normal(0, \sigma), -c, c)\tag{9}$$
