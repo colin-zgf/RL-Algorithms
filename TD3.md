@@ -20,7 +20,7 @@ $$Q^{\pi}(s,a) = r + \gamma \mathbb{E_{s^{'}, a^{'}}} \begin{bmatrix}Q^{\pi}(s^{
 
 In deep Q-learning, the network is updated by using temporal difference learning with a secondary frozen target network $Q_{\theta^{'}} (s,a)$ to maintain a fixed objective y over multiple updates:
 
-$$y = r + \gamma \mathbb{E_{s^{'}, a^{'}}} \begin{bmatrix}Q_{\theta^{'}}(s^{'}, a^{'}) \end{bmatrix}\tag{3}$$
+$$y = r + \gamma Q_{\theta^{'}}(s^{'}, a^{'})\tag{3}$$
 
 where the actions are selected from a target actor network $\pi_{\phi^{'}}$. The weights of a target network are either updated periodically to exactly match the weights of the current network, or by some proportion $\tau$ at each time step:
 
@@ -30,6 +30,6 @@ $$\theta^{'} \leftarrow \tau \theta + (1-\tau)\theta^{'}\tag{4}$$
 
 (1) Clipped Double Q-learning: In Double Q-Learning, the action selection and Q-value estimation are made by two networks separately. In the DDPG setting, given two deterministic actors ($\pi_{\phi_{1}}$,$\pi_{\phi_{2}}$) with two corresponding critics ($Q_{\theta_{1}}$,$Q_{\theta_{2}}$), the Double Q-learning Bellman targets look like:
 
-$$y_{1} = r + \gamma Q_{\theta_{2^{'}}} (s^{'}, \pi_{\phi_{1}} (s^{'}))\tag{5}$$
+$$y_{1} = r + \gamma Q_{\theta_{2}^{'}} (s^{'}, \pi_{\phi_{1}} (s^{'}))\tag{5}$$
 
-$$y_{2} = r + \gamma Q_{\theta_{1^{'}}} (s^{'}, \pi_{\phi_{2}} (s^{'}))\tag{6}$$
+$$y_{2} = r + \gamma Q_{\theta_{1}^{'}} (s^{'}, \pi_{\phi_{2}} (s^{'}))\tag{6}$$
