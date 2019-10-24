@@ -8,17 +8,17 @@ Instead of using a Qtable, we’ll implement a Neural Network that takes a state
 
 Threre are some extensions of DQN. The followings show six extensions of DQN
 
-- N-steps DQN: How to immprove convergence speed and stability with a simple unrolling of the Bellman equation and why it is not an ultmate solution.
+- **N-steps DQN**: How to immprove convergence speed and stability with a simple unrolling of the Bellman equation and why it is not an ultmate solution.
 
-- Double DQN: How to deal with DQN overestimation of the value of actions.
+- **Double DQN**: How to deal with DQN overestimation of the value of actions.
 
-- Noisy Network: How to make exploration more efficient by adding noise.
+- **Noisy Network**: How to make exploration more efficient by adding noise.
 
-- Prioritized replay buffer: Why uniform sampling of our experience is not the best way to train.
+- **Prioritized replay buffer**: Why uniform sampling of our experience is not the best way to train.
 
-- Dueling DQN: How to improve convergence speed by making our network's architecture closer represent the problem we are solving.
+- **Dueling DQN**: How to improve convergence speed by making our network's architecture closer represent the problem we are solving.
 
-- Categorical DQN: How to go beyond the single expected value of action and work with full distributions.
+- **Categorical DQN**: How to go beyond the single expected value of action and work with full distributions.
 
 In the rest part, we will focus on those six extenstions of DQN.
 
