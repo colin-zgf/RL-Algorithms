@@ -96,19 +96,23 @@ The resulting distribution can be used to train our network to give better predi
 The figure below shows the $\epsilon$ and rewards of N-Step, noisy network, prioritized experience replay and dueling network.
 
 -N-steps
+
 ![epsilon](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/n_steps/epsilon.png)
 ![reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/n_steps/reward.png)
 
 -Noisy Network
+
 ![](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/noisy/sigma_snr_layer_1.png)
 ![](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/noisy/sigma_snr_layer_2.png)
 ![reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/noisy/reward.png)
 
 - Prioritized Replay Buffer
+
 ![beta](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/prio_replay/beta.png)
 ![epsilon](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/prio_replay/epsilon.png)
 ![reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/prio_replay/reward.png)
 
 - Dueling Nework
+
 ![epsilon](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/dueling/epsilon.png)
 ![reward](https://github.com/colin-zgf/RL-Algorithms/blob/master/images/DQN_result/dueling/reward.png)
