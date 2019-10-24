@@ -33,3 +33,9 @@ $$\theta^{'} \leftarrow \tau \theta + (1-\tau)\theta^{'}\tag{4}$$
 $$y_{1} = r + \gamma Q_{\theta_{2}^{'}} (s^{'}, \pi_{\phi_{1}} (s^{'}))\tag{5}$$
 
 $$y_{2} = r + \gamma Q_{\theta_{1}^{'}} (s^{'}, \pi_{\phi_{2}} (s^{'}))\tag{6}$$
+
+However, due to the slow changing policy, these two networks could be too similar to make independent decisions. The Clipped Double Q-learning instead uses the minimum estimation among two so as to favor underestimation bias which is hard to propagate through training:
+
+$$y_{1} = r + \gamma \min \limit_{i=1,2} Q_{\theta_{i}^{'}} (s^{'}, \pi_{\phi_{1}} (s^{'}))\tag{7}$$
+
+$$y_{2} = r + \gamma \min \limit_{i=1,2} Q_{\theta_{i}^{'}} (s^{'}, \pi_{\phi_{2}} (s^{'}))\tag{7}$$
