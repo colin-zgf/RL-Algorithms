@@ -33,6 +33,7 @@ In reinforcement learning, a policy can be generated directly from the value fun
 The following **reinforcement learning** algorithms are included:
 
 - [Q-Learning](https://github.com/colin-zgf/RL-Algorithms/blob/master/Project-Guangfei%20Zhu.pdf)
+- [DQN](https://github.com/colin-zgf/RL-Algorithms/blob/master/DQN.md)
 - [NPG](https://github.com/colin-zgf/RL-Algorithms/blob/master/NPG.md)
 - [A2C](https://github.com/colin-zgf/RL-Algorithms/blob/master/A2C.md)
 - [TRPO](https://github.com/colin-zgf/RL-Algorithms/blob/master/TRPO.md)
@@ -46,6 +47,7 @@ The following **reinforcement learning** algorithms are included:
 ## Code
 
 - [Q-Learning](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/Q-learning)
+- [Deep-Q network (DQN)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/DQN)
 - [Vanilla Policy Gradient](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/PG_NPG_TRPO_PPO)
 - [Natural Policy Gradient (NPG)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/PG_NPG_TRPO_PPO)
 - [Actor-Critic (A2C)](https://github.com/colin-zgf/RL-Algorithms/tree/master/code/A2C)
