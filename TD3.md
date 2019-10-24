@@ -50,4 +50,4 @@ To reduce the variance, TD3 updates the policy at a lower frequency than the Q-f
 
 $$y = r + \gamma Q_{\theta^{'}} (s^{'}, \pi_{\phi^{'}} (s^{'}) + \epsilon)\tag{8}$$
 
-$$\epsilon \widetilde clip (Normal(0, \sigma), -c, c)\tag{9}$$
+$$\epsilon is clip (Normal(0, \sigma), -c, c)\tag{9}$$
