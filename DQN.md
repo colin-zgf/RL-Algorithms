@@ -23,3 +23,21 @@ Threre are some extensions of DQN. The followings show six extensions of DQN
 In the rest part, we will focus on those six extenstions of DQN.
 
 ## N-Step DQN
+
+To get the idea, let's look at the Bellman update used in Q-learning.
+
+$$Q(s_{t}, a_{t}) = r_{t} + \gamma \max \limits_{a} Q(s_{t+1}, a_{t+1})\tag{1} $$
+
+This equation is recursive, which means that we can express $Q(s_{t+1}, a_{t+1})$ in terms of itself, which gives us this result:
+
+$$Q(s_{t}, a_{t}) = r_{t} + \gamma \max \limits_{a} \begin{bmatrix}r_{a, t+1} +\gamma \max \limits_{a^{'}}Q(s_{t+2}, a^{'}) \end{bmatrix}\tag{2} $$
+
+$$Q(s_{t}, a_{t}) = r_{t} + \gamma r_{t+1} \max \limits_{a^{'}} Q(s_{t+2}, a^{'})\tag{3} $$
+
+This value could be unrolled again and again any number of times. Under certain unrolling steps, it will be benificial for convergence and speed. However, unrolling the Bellman equation many times (e.g. 100 steps ahead) will make DQN fail to converge at all. **Why?** Remember for the $r_{t+1}$ calculation at the beginning of this section, we have omitted the max operation at the intermediate step, assuming that our action selection during experience gathering or our policy was optimal. However, this assumption is mostly not true especially at the beginning of training leading to unsuccessfully training.
+
+## Double DQN
+
+The formula of Double DQN is given below:
+
+$$Q(s_{t}, a_{t}) = r_{t} + \gamma \max \limits_{a} Q(s_{t+1}, arg \max \limits_{a} Q(s_{t+1}, a))\tag{4}$$
