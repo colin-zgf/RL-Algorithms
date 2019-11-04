@@ -34,7 +34,7 @@ $$d^*=arg \max \limits_{d} J (\theta_{old}) + \bigtriangledown_{\theta} J(\theta
 
 ### Taylor Expansion of KL
 
-$$D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \approx D_{KL} (p_{\theta_{old}} \mid p_{\theta_{old}}) + d^T \bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} + \frac {1}{2} d^T \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}}\tag{6}$$
+$$D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \approx D_{KL} (p_{\theta_{old}} \mid p_{\theta_{old}}) + d^T \bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}} + \frac {1}{2} d^T \bigtriangledown_{\theta}^2 D_{KL} (p_{\theta_{old}} \mid p_{\theta})\mid_{\theta=\theta_{old}} d\tag{6}$$
 
 - Term $\bigtriangledown_{\theta} D_{KL} (p_{\theta_{old}} \mid p_{\theta}) \mid_{\theta=\theta_{old}}$
 
