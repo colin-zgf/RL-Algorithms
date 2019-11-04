@@ -53,7 +53,7 @@ $$(Q^{ret}(s,a)−Q(s,a))\bigtriangledown Q(s,a)\tag{6}$$
 
 To safe-guard against high variance, the author proposes to truncate the importance weights and introduce a correction term. The off-policy ACER gradient:
 
-$$\hat{g_{t}}^{acer} = \overline{\rho_{t}} \bigtriangledown_{\theta} log \pi_{\theta} (a_{t} \mid x_{t}) \begin{bmatrix} Q^{ret}(x_{t}, a_{t} - V_{\theta_{v}}(x_{t}))\end{bmatrix} +$$
+$$\hat{g_{t}}^{acer} = \overline{\rho_{t}} \bigtriangledown_{\theta} log \pi_{\theta} (a_{t} \mid x_{t}) \begin{bmatrix} Q^{ret}(x_{t}, a_{t}) - V_{\theta_{v}}(x_{t})\end{bmatrix} +$$
 $$\mathbb{E_{a \sim \pi}}\begin{bmatrix}\max (0, \frac{\rho_{t}(a) - c}{\rho_{t}(a)}) \bigtriangledown_{\theta} log \pi_{\theta} (a \mid x_{t}) \begin{bmatrix}Q_{\theta_{v}}(x_{t}, a) - V_{\theta_{v}}(x_{t})\end{bmatrix} \end{bmatrix}\tag{7}$$
 
 where $Q_{\theta_{v}}(\cdot)$ and $V_{\theta_{v}}(\cdot)$ are value functions predicted by the critic with parameter $w$. The first term contains the clipped important weight. The clipping helps reduce the variance, in addition to subtracting state value function $V_{\theta_{v}}(\cdot)$ as a baseline. The second term makes a correction to achieve unbiased estimation.
