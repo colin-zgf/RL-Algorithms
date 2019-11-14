@@ -35,7 +35,7 @@ The policy is trained with the objective to maximize the expected return and the
 
 $$J(\theta) =  \sum_{t=1}^{T} \mathbb{E_{s_{t}, a_{t} \sim \rho_{\pi_{\theta}}}} \begin{bmatrix}r(s_{t}, a_{t}) + \alpha H(\pi_{\theta}(\cdot \mid s_{t})) \end{bmatrix}\tag{1}$$
  
-where H(.) is the entropy measure and α controls how important the entropy term is, known as temperature parameter. The entropy maximization leads to policies that can (1) the policy is incentivized to explore more widely, while giving up on clearly unpromising avenues. (2) the policy can capture multiple modes of nearoptimal behavior. In problem settings where multiple actions seem equally attractive, the policy will commit equal probability mass to those actions.
+where H(.) is the entropy measure and α controls how important the entropy term is, known as temperature parameter. The entropy maximization leads to policies that can (1) the policy is incentivized to explore more widely, while giving up on clearly unpromising avenues. (2) the policy can capture multiple modes of near optimal behavior. In problem settings where multiple actions seem equally attractive, the policy will commit equal probability mass to those actions.
 
 Precisely, SAC aims to learn three functions:
 
