@@ -47,7 +47,7 @@ The A2C algorithm is given below
   
   $$\partial \theta_{v} \leftarrow \partial \theta_{v} + \frac{\partial (R-V_{\theta}(s_{i}))^2}{\partial \theta_{v}}\tag{4}$$
 
-* 5. Update network parameters using the accumulated gradients, moving in the direction of PG $\partial \theta_{\pi}$ nad in the opposite direction of the value gradients $\partial \theta_{v}$
+* 5. Update network parameters using the accumulated gradients, moving in the direction of PG $\partial \theta_{\pi}$ and in the opposite direction of the value gradients $\partial \theta_{v}$
 
 * 6. Repeat from steps ii. until convergence is reached. 
 
