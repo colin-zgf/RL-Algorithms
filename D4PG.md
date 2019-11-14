@@ -20,7 +20,7 @@ The result was impressive: this combination showed the state-of-the art results 
 
 ## D4PG Architecture
 
-1. The most notable change is the critic's output. Instead of returning the single Qvalue for the given state and the action, it now returns $N_ATOMS$ e.g 51 values, corresponding to the probabilities of values from the pre-defined range. 
+1. The most notable change is the critic's output. Instead of returning the single Q-value for the given state and the action, it now returns $N-ATOMS$ e.g 51 values, corresponding to the probabilities of values from the pre-defined range. 
 
 2. Another difference between D4PG and DDPG is the exploration. DDPG used the OU process for the exploration, but according to D4PG authors, they tried both OU and adding simple random noise to the actions, and the result was the same. So, they used a simpler approach for the exploration in the paper.
 
