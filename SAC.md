@@ -47,7 +47,7 @@ Soft Q-value and soft state value according to Bellman equation are defined as:
 
 $$Q(s_{t},a_{t}) = r(s_{t},a_{t}) + \gamma \mathbb{E_{s_{t+1} \sim \rho_{\pi}(s)}} \begin{bmatrix}V(s_{t+1}) \end{bmatrix}\tag{2}$$
 
-$$V(s_{t}) = r(s_{t},a_{t}) + \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix}\tag{3}$$
+$$V(s_{t}) = \mathbb{E_{a_{t} \sim \pi}} \begin{bmatrix}Q(s_{t},a_{t}) - \alpha log \pi (a_{t} \mid s_{t}) \end{bmatrix}\tag{3}$$
 
 Thus, 
 
