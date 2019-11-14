@@ -4,7 +4,7 @@
 
 In the Q-learning algorithm, one needs to generate a Q-table with size $S\times A$ where $S$ is the total number of states and $A$ is total number of actions. However, producing and updating a Q-table can become ineffective in big state space environment. Besides, under a lot of situations, some states are rarely used. Thus, there is no need to update Q-table for such kind of states at every iteration.
 
-Instead of using a Qtable, we’ll implement a Neural Network that takes a state and approximates Q-values for each action based on that state.
+Instead of using a Q-table, we’ll implement a Neural Network that takes a state and approximates Q-values for each action based on that state.
 
 Threre are some extensions of DQN. The followings show six extensions of DQN
 
